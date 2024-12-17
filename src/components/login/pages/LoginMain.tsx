@@ -50,12 +50,16 @@ const LoginMain = () => {
     setGoLogin(false);
   };
 
+  const loginHandler = () => {
+    localStorage.setItem("login", JSON.stringify(true));
+  };
+
   return (
     <Container>
       <LoginWrap>
         <LoginInputWrap>
           <div className="title">WELCOME</div>
-          <LoginForm>
+          <LoginForm submitHandler={loginHandler}>
             <InputBox>
               <LoginInput placeholder="아이디" type="text" />
               <FontAwesomeIcon icon={faIdCard} />

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import LoginMain from "./pages/LoginMain";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GoSignUpContext } from "./components/context/GoSignUpContext";
 import { GoPasswordContxt } from "./components/context/GoPasswordContext";
 import { GoLoginContext } from "./components/context/GoLoginContext";
@@ -21,10 +21,6 @@ const Login = () => {
   const { goSignUp, setGoSignUp } = useContext(GoSignUpContext)!;
   const { goPassword, setGoPassword } = useContext(GoPasswordContxt)!;
   const { goLogin, setGoLogin } = useContext(GoLoginContext)!;
-
-  console.log(goSignUp);
-  console.log(goPassword);
-  console.log(goLogin);
 
   return (
     <Container>

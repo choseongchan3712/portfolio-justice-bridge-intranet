@@ -76,6 +76,9 @@ const SignUp = () => {
       setSec(true);
     }
   };
+
+  const signUpHandler = () => {};
+
   return (
     <Container>
       <div className="img_wrap">
@@ -87,7 +90,7 @@ const SignUp = () => {
       <div className="sign_wrap">
         <LoginInputWrap>
           <div className="title">회원가입</div>
-          <LoginForm>
+          <LoginForm submitHandler={signUpHandler}>
             <InputBox>
               <LoginInput placeholder="아이디" type="text" />
               <FontAwesomeIcon icon={faIdCard} />

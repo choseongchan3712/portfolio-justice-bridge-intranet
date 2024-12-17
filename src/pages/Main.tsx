@@ -3,6 +3,7 @@ import Login from "../components/login/Login";
 import GoSignUpProvider from "../components/login/components/provider/GoSignUpProvider";
 import { GoPasswordProvider } from "../components/login/components/provider/GoPasswordProvider";
 import { GoLoginProvider } from "../components/login/components/provider/GoLoginProvier";
+import { useEffect, useState } from "react";
 
 const Container = styled.div`
   width: 100vw;
@@ -13,16 +14,35 @@ const Container = styled.div`
 `;
 
 const Main = () => {
+  const [isLogin, setIsLogin] = useState<boolean>();
+
+  useEffect(() => {
+    const localLogin = localStorage.getItem("login");
+    if (JSON.parse(localLogin!)) {
+      setIsLogin(true);
+    } else {
+      setIsLogin(false);
+    }
+  }, []);
+
+  console.log(isLogin);
+
   return (
-    <Container>
-      <GoLoginProvider>
-        <GoPasswordProvider>
-          <GoSignUpProvider>
-            <Login></Login>
-          </GoSignUpProvider>
-        </GoPasswordProvider>
-      </GoLoginProvider>
-    </Container>
+    <>
+      {isLogin ? (
+        <>login success</>
+      ) : (
+        <Container>
+          <GoLoginProvider>
+            <GoPasswordProvider>
+              <GoSignUpProvider>
+                <Login></Login>
+              </GoSignUpProvider>
+            </GoPasswordProvider>
+          </GoLoginProvider>
+        </Container>
+      )}
+    </>
   );
 };
 

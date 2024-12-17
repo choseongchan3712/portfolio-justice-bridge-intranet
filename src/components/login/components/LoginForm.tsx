@@ -10,10 +10,11 @@ margin-bottom: 20px;
 
 interface LoginFormType {
   children: React.ReactNode;
+  submitHandler: (value: any) =>void
 }
 
-const LoginForm = ({children}:LoginFormType) =>{
-  return <Container>{children}</Container>;
+const LoginForm = ({children, submitHandler}:LoginFormType) =>{
+  return <Container onSubmit={submitHandler}>{children}</Container>;
 };
 
 export default LoginForm;

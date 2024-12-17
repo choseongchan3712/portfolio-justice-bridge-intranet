@@ -42,12 +42,15 @@ const Password = () => {
       setGoSignUp(false);
       setGoLogin(true);
     };
+
+    const passwordHandler = () => {};
+
   return (
     <Container>
       <LoginWrap>
         <LoginInputWrap>
           <div className="title">비밀번호 찾기</div>
-          <LoginForm>
+          <LoginForm submitHandler={passwordHandler}>
             <InputBox>
               <LoginInput placeholder="아이디" type="text" />
               <FontAwesomeIcon icon={faIdCard} />
