@@ -1,6 +1,10 @@
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useContext} from "react";
 import styled from "styled-components";
+import { GoSignUpContext } from "./context/GoSignUpContext";
+import { GoPasswordContxt } from "./context/GoPasswordContext";
+import { GoLoginContext } from "./context/GoLoginContext";
 
 const Container = styled.div`
   cursor: pointer;
@@ -31,8 +35,17 @@ const Container = styled.div`
 `;
 
 const SignUpButton = () => {
+  const { setGoSignUp } = useContext(GoSignUpContext)!;
+  const {setGoPassword} = useContext(GoPasswordContxt)!;
+    const {setGoLogin} = useContext(GoLoginContext)!;
+  const clickHandler = () => {
+    setGoSignUp(true);
+    setGoPassword(false);
+    setGoLogin(false);
+  };
+
   return (
-    <Container>
+    <Container onClick={clickHandler}>
       <div>회원가입</div>
       <FontAwesomeIcon icon={faAngleRight} />
     </Container>

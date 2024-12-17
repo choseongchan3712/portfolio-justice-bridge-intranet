@@ -19,6 +19,8 @@ const Container = styled.div`
 `;
 
 const LoginHeader = () => {
+
+
   return (
     <Container>
       <div className="logo">JusticeBridge</div>
