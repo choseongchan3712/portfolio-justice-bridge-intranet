@@ -5,6 +5,7 @@ import { GoSignUpContext } from "./components/context/GoSignUpContext";
 import { GoPasswordContxt } from "./components/context/GoPasswordContext";
 import { GoLoginContext } from "./components/context/GoLoginContext";
 import Password from "./pages/Password";
+import SignUp from "./pages/SignUp";
 
 const Container = styled.div`
   position: relative;
@@ -17,9 +18,9 @@ const Container = styled.div`
 `;
 
 const Login = () => {
-  const {goSignUp, setGoSignUp} = useContext(GoSignUpContext)!;
-  const {goPassword, setGoPassword} = useContext(GoPasswordContxt)!;
-  const {goLogin, setGoLogin} = useContext(GoLoginContext)!;
+  const { goSignUp, setGoSignUp } = useContext(GoSignUpContext)!;
+  const { goPassword, setGoPassword } = useContext(GoPasswordContxt)!;
+  const { goLogin, setGoLogin } = useContext(GoLoginContext)!;
 
   console.log(goSignUp);
   console.log(goPassword);
@@ -27,8 +28,13 @@ const Login = () => {
 
   return (
     <Container>
-      {/* <LoginMain /> */}
-      {goLogin ? <LoginMain /> : (goPassword ? <Password /> : (goSignUp ? <></> : <></>))}
+      {goLogin ? (
+        <LoginMain />
+      ) : goPassword ? (
+        <Password />
+      ) : goSignUp ? (
+        <SignUp />
+      ) : null}
     </Container>
   );
 };
