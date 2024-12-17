@@ -4,6 +4,7 @@ import { useContext, useEffect } from "react";
 import { GoSignUpContext } from "./components/context/GoSignUpContext";
 import { GoPasswordContxt } from "./components/context/GoPasswordContext";
 import { GoLoginContext } from "./components/context/GoLoginContext";
+import Password from "./pages/Password";
 
 const Container = styled.div`
   position: relative;
@@ -20,20 +21,14 @@ const Login = () => {
   const {goPassword, setGoPassword} = useContext(GoPasswordContxt)!;
   const {goLogin, setGoLogin} = useContext(GoLoginContext)!;
 
-  useEffect(()=>{
-    if(goLogin) {
-      setGoSignUp(false);
-      
-    }
-  }, [goSignUp, goPassword, goLogin]);
-
   console.log(goSignUp);
   console.log(goPassword);
   console.log(goLogin);
 
   return (
     <Container>
-      <LoginMain />
+      {/* <LoginMain /> */}
+      {goLogin ? <LoginMain /> : (goPassword ? <Password /> : (goSignUp ? <></> : <></>))}
     </Container>
   );
 };

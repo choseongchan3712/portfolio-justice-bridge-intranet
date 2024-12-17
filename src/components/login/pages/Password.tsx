@@ -5,8 +5,8 @@ import LoginForm from "../components/LoginForm";
 import LoginInput from "../components/LoginInput";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faIdCard } from "@fortawesome/free-regular-svg-icons";
-import { faEye, faEyeSlash, faLock } from "@fortawesome/free-solid-svg-icons";
-import { useContext, useState } from "react";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { useContext,} from "react";
 import InputBox from "../components/InputBox";
 import SubmitButton from "../components/SubmitButton";
 import MoveButton from "../components/MoveButton";
@@ -31,30 +31,22 @@ const Container = styled.div`
   }
 `;
 
-const LoginMain = () => {
-  const [sec, setSec] = useState<boolean>(true);
-  const { setGoPassword } = useContext(GoPasswordContxt)!;
-  const { setGoSignUp } = useContext(GoSignUpContext)!;
-  const { setGoLogin } = useContext(GoLoginContext)!;
-  const eyeHandler = () => {
-    if (sec === true) {
-      setSec(false);
-    } else {
-      setSec(true);
-    }
-  };
-
-  const moveButtonHandler = () => {
-    setGoPassword(true);
-    setGoSignUp(false);
-    setGoLogin(false);
-  };
-
+const Password = () => {
+    const { setGoPassword } = useContext(GoPasswordContxt)!;
+    const { setGoSignUp } = useContext(GoSignUpContext)!;
+    const { setGoLogin } = useContext(GoLoginContext)!;
+    
+  
+    const moveButtonHandler = () => {
+      setGoPassword(false);
+      setGoSignUp(false);
+      setGoLogin(true);
+    };
   return (
     <Container>
       <LoginWrap>
         <LoginInputWrap>
-          <div className="title">WELCOME</div>
+          <div className="title">비밀번호 찾기</div>
           <LoginForm>
             <InputBox>
               <LoginInput placeholder="아이디" type="text" />
@@ -62,20 +54,15 @@ const LoginMain = () => {
             </InputBox>
             <InputBox>
               <LoginInput
-                placeholder="비밀번호"
-                type={`${sec ? "password" : "text"}`}
+                placeholder="이메일"
+                type="test"
               />
-              <FontAwesomeIcon icon={faLock} />
-              {sec ? (
-                <FontAwesomeIcon icon={faEyeSlash} onClick={eyeHandler} />
-              ) : (
-                <FontAwesomeIcon icon={faEye} onClick={eyeHandler} />
-              )}
+              <FontAwesomeIcon icon={faEnvelope} />
             </InputBox>
-            <SubmitButton>로그인</SubmitButton>
+            <SubmitButton>비밀번호 찾기</SubmitButton>
           </LoginForm>
           <MoveButton clickHandler={moveButtonHandler}>
-            비밀번호를 잊으셨나요?
+            로그인으로 돌아가기
           </MoveButton>
         </LoginInputWrap>
       </LoginWrap>
@@ -83,4 +70,4 @@ const LoginMain = () => {
   );
 };
 
-export default LoginMain;
+export default Password;

@@ -7,6 +7,7 @@ ${reset};
 *{
   box-sizing: border-box;
   word-spacing: -1px;
+  letter-spacing: -1px;
 }
 
 a {
