@@ -47,6 +47,10 @@ img {
   --normal-size: 16px;
   --medium-size: 14px;
   --small-size: 10px;
+
+  --nav-width: 330px;
+  --header-height: 110px;
+  --wraper-padding: 20px;
 }
 
 `;

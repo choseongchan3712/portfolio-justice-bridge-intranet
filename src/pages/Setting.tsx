@@ -1,6 +1,6 @@
 import Wraper from "../components/global/Wraper";
 
-const Main = () => {
+const Setting = () => {
   return (
     <Wraper>
       <></>
@@ -8,4 +8,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Setting;
