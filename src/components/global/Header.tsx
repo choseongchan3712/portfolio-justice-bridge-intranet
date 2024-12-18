@@ -11,16 +11,8 @@ import {
   faHouse,
   faList,
 } from "@fortawesome/free-solid-svg-icons";
+import HeaderWrap from "./HeaderWrap";
 
-const HeaderWrap = styled.div`
-  position: absolute;
-  z-index: 500;
-  top: 0;
-  right: 0;
-  width: calc(100vw - var(--nav-width));
-  height: var(--header-height);
-  background-color: var(--sub-color-wh);
-`;
 const Nav = styled.div`
   position: absolute;
   z-index: 500;
@@ -65,7 +57,7 @@ const Header = () => {
 
   return (
     <>
-      <HeaderWrap></HeaderWrap>
+      <HeaderWrap />
       <Nav>
         <div className="logo">
           <Link to={"/"}>JusticeBridge</Link>
