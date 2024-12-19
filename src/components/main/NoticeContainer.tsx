@@ -1,4 +1,4 @@
-import { faEllipsis, faEye } from "@fortawesome/free-solid-svg-icons";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import { NoticeContainerType } from "../../type";
@@ -11,6 +11,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: 0.25s ease-in-out;
+  cursor: pointer;
   .title_wrap {
     width: 100%;
     padding: 5px 0;
@@ -21,9 +23,6 @@ const Container = styled.div`
       color: var(--sub-color-b);
       font-size: var(--title-size);
       font-weight: 900;
-    }
-    svg {
-      color: var(--gray-3);
     }
   }
   .contents_wrap {
@@ -79,6 +78,10 @@ const Container = styled.div`
       }
     }
   }
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 5px 5px 10px var(--gray-3);
+  }
 `;
 
 const NoticeContainer = ( {barColor, title, areaName}:NoticeContainerType) => {
@@ -86,7 +89,6 @@ const NoticeContainer = ( {barColor, title, areaName}:NoticeContainerType) => {
     <Container style={{gridArea: areaName}}>
       <div className="title_wrap">
         <div className="title">{title}</div>
-        <FontAwesomeIcon icon={faEllipsis} />
       </div>
       <div className="contents_wrap">
         <div className="detail">

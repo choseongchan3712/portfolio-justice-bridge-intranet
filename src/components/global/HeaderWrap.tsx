@@ -65,8 +65,7 @@ const Container = styled.div`
       }
       .notice_num {
         position: absolute;
-        width: 35px;
-        height: 23px;
+        padding: 3px 5px;
         display: flex;
         align-items: center;
         justify-content: center;

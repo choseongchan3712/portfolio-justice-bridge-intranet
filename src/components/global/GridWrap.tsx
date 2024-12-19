@@ -18,8 +18,8 @@ const GridWrap = ({
   return (
     <Container
       style={{
+        gridTemplateColumns: columns,
         gridTemplateRows: rows,
-        gridAutoColumns: columns,
         gridTemplateAreas: areas,
         gap: gap,
         padding: padding,
