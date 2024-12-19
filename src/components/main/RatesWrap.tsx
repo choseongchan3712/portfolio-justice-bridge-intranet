@@ -6,9 +6,10 @@ import exchangeData from "../../constant/getExData";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-flip";
-import 'swiper/css/pagination';
+import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { EffectFlip, Autoplay } from "swiper/modules";
+import { DotLoader, GridLoader } from "react-spinners";
 
 const Container = styled.div`
   position: relative;
@@ -18,20 +19,20 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   height: 120px;
   overflow: hidden;
-  
+
   .swiper {
     width: 100%;
     height: 100%;
   }
-  
+
   .swiper-slide {
     width: 100%;
     height: 100%;
   }
-  
+
   .contents {
     height: 100%;
     padding: 15px;
@@ -112,59 +113,67 @@ const RatesWrap = ({ type, areaName }: RatesWrapType) => {
             .toFixed(2)
             .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
           name: value.name,
-        }))
+        })),
       ]);
     }
   }, [modifyEx, USD]);
 
-  useEffect(()=>{
+  useEffect(() => {
     if (exData) {
       const needData = exData;
       setShuffledData(
-        needData.map((value:any)=>({value, random: Math.random()})).sort((a:any, b:any)=>(a.random - b.random)).map(({value}:any)=> value)
+        needData
+          .map((value: any) => ({ value, random: Math.random() }))
+          .sort((a: any, b: any) => a.random - b.random)
+          .map(({ value }: any) => value)
       );
     }
   }, [exData]);
 
-  console.log(exData);
-  
-  return (
-    type === "exchange" ? 
-    <Container style={{ gridArea: areaName }}>
-      <Swiper
-        direction={"vertical"}
-        effect={"flip"}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        loop={true}
-        speed={800}
-        modules={[EffectFlip, Autoplay]}
-        className="mySwiper"
-      >
-        {shuffledData?.map((data: any, index: number) => (
-          <SwiperSlide key={index}>
-            <div className="contents">
-              <div className="money_type">
-                {data.name} {data.symbol}
-              </div>
-              <div className="money">
-                <div className="detail">{data.amount}</div>
-                <div
-                  className="percent"
-                  style={{ backgroundColor: "var(--gray-3)" }}
-                >
-                  {}
+  return type === "exchange" ? (
+    shuffledData ? (
+      <Container style={{ gridArea: areaName }}>
+        <Swiper
+          modules={[EffectFlip, Autoplay]}
+          effect="flip"
+          direction="vertical"
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          loop={true}
+          speed={800}
+          grabCursor={true}
+          className="mySwiper"
+        >
+          {shuffledData?.map((data: any, index: number) => (
+            <SwiperSlide key={index}>
+              <div className="contents">
+                <div className="money_type">
+                  {data.name} {data.symbol}
                 </div>
+                <div className="money">
+                  <div className="detail">{data.amount}</div>
+                  <div
+                    className="percent"
+                    style={{ backgroundColor: "var(--gray-3)" }}
+                  >
+                    {}
+                  </div>
+                </div>
+                <div className="date">{new Date().toLocaleDateString()}</div>
               </div>
-              <div className="date">{new Date().toLocaleDateString()}</div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </Container> : <></>
-  );
+            </SwiperSlide>
+          ))}
+        </Swiper>{" "}
+      </Container>
+    ) : (
+      <Container style={{ gridArea: areaName }}>
+        <GridLoader color="var(--gray-3)" />
+      </Container>
+    )
+  ) : null;
 };
 
 export default RatesWrap;

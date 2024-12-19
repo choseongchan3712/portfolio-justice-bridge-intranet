@@ -10,3 +10,4 @@
 - [X] npm i --save @fortawesome/react-fontawesome@latest
 - [X] npm i axios
 - [X] npm install swiper
+- [X] npm install react-spinners --save
