@@ -29,7 +29,7 @@ const Container = styled.div`
         all: unset;
         box-sizing: border-box;
         width: 370px;
-        height: 60px;
+        height: 40px;
         border: 1px solid var(--gray-2);
         border-radius: 15px;
         display: flex;

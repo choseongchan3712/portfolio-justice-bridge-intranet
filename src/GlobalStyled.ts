@@ -48,8 +48,8 @@ img {
   --medium-size: 14px;
   --small-size: 10px;
 
-  --nav-width: 330px;
-  --header-height: 110px;
+  --nav-width: 300px;
+  --header-height: 70px;
   --wraper-padding: 20px;
 }
 

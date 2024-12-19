@@ -29,16 +29,16 @@ const Nav = styled.div`
   .logo {
     width: var(--nav-width);
     height: var(--header-height);
-    padding-top: 55px;
     display: flex;
     justify-content: center;
+    align-items: center;
     border-bottom: 1px solid var(--gray-2);
     color: var(--color-sub-b);
     font-size: var(--heading-size);
     font-weight: 900;
-    margin-bottom: 90px;
   }
   .menu_wrap {
+    padding-top: 90px;
     width: 100%;
     height: calc(100vh - var(--header-height));
     display: flex;
