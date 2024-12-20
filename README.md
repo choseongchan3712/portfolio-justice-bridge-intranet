@@ -11,3 +11,4 @@
 - [X] npm i axios
 - [X] npm install swiper
 - [X] npm install react-spinners --save
+- [X] npm install dayjs
