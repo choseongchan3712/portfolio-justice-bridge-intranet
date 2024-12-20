@@ -9,7 +9,8 @@ import "swiper/css/effect-flip";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { EffectFlip, Autoplay } from "swiper/modules";
-import { DotLoader, GridLoader } from "react-spinners";
+import { GridLoader } from "react-spinners";
+import { stockRates } from "../../api/stockAPI";
 
 const Container = styled.div`
   position: relative;
@@ -65,6 +66,7 @@ const Container = styled.div`
         font-weight: 900;
         padding: 5px;
         border-radius: 5px;
+        letter-spacing: 0;
       }
     }
     .date {
@@ -80,55 +82,95 @@ const RatesWrap = ({ type, areaName }: RatesWrapType) => {
   const [exData, setExData] = useState<any>();
   const [USD, setUSD] = useState<number>(0);
   const [shuffledData, setShuffledData] = useState<any>();
+  const [stockData, setStockData] = useState<any>();
+  const [useStock, setUseStock] = useState<any>();
+  const [shuffledStock, setShuffledStock] = useState<any>();
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const res = await getExchangeRates();
-        setUSD(res?.data?.rates?.KRW);
-        setModifyEx(
-          exchangeData.map((value: any) => ({
-            symbol: value.symbol,
-            amount: res?.data?.rates[value.symbol],
-            name: value.name,
-          }))
-        );
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       const res = await getExchangeRates();
+  //       setUSD(res?.data?.rates?.KRW);
+  //       setModifyEx(
+  //         exchangeData.map((value: any) => ({
+  //           symbol: value.symbol,
+  //           amount: res?.data?.rates[value.symbol],
+  //           name: value.name,
+  //         }))
+  //       );
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   })();
+  // }, []);
 
-  useEffect(() => {
-    if (modifyEx && USD) {
-      setExData([
-        {
-          symbol: "USD",
-          amount: USD.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ","),
-          name: "미국",
-        },
-        ...modifyEx.map((value: any) => ({
-          symbol: value.symbol,
-          amount: (USD / parseFloat(value.amount))
-            .toFixed(2)
-            .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
-          name: value.name,
-        })),
-      ]);
-    }
-  }, [modifyEx, USD]);
+  // useEffect(() => {
+  //   if (modifyEx && USD) {
+  //     setExData([
+  //       {
+  //         symbol: "USD",
+  //         amount: USD.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+  //         name: "미국",
+  //       },
+  //       ...modifyEx.map((value: any) => ({
+  //         symbol: value.symbol,
+  //         amount: (USD / parseFloat(value.amount))
+  //           .toFixed(2)
+  //           .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+  //         name: value.name,
+  //       })),
+  //     ]);
+  //   }
+  // }, [modifyEx, USD]);
 
-  useEffect(() => {
-    if (exData) {
-      const needData = exData;
-      setShuffledData(
-        needData
-          .map((value: any) => ({ value, random: Math.random() }))
-          .sort((a: any, b: any) => a.random - b.random)
-          .map(({ value }: any) => value)
-      );
-    }
-  }, [exData]);
+  // useEffect(() => {
+  //   if (exData) {
+  //     const needData = exData;
+  //     setShuffledData(
+  //       needData
+  //         .map((value: any) => ({ value, random: Math.random() }))
+  //         .sort((a: any, b: any) => a.random - b.random)
+  //         .map(({ value }: any) => value)
+  //     );
+  //   }
+  // }, [exData]);
+
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       const res = await stockRates();
+  //       setStockData(res?.data?.response?.body?.items?.item);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   })();
+  // }, []);
+
+  // useEffect(() => {
+  //   if (stockData) {
+  //     setUseStock(
+  //       stockData.map((value: any) => ({
+  //         name: value.itmsNm,
+  //         amount: parseFloat(value.mkp)
+  //           .toFixed(2)
+  //           .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+  //         percent: parseFloat(value.fltRt),
+  //       }))
+  //     );
+  //   }
+  // }, [stockData]);
+
+  // useEffect(() => {
+  //   if (useStock) {
+  //     const needStock = useStock;
+  //     setShuffledStock(
+  //       needStock
+  //         .map((value: any) => ({ value, random: Math.random() }))
+  //         .sort((a: any, b: any) => a.random - b.random)
+  //         .map(({ value }: any) => value)
+  //     );
+  //   }
+  // }, [useStock]);
 
   return type === "exchange" ? (
     shuffledData ? (
@@ -173,7 +215,50 @@ const RatesWrap = ({ type, areaName }: RatesWrapType) => {
         <GridLoader color="var(--gray-3)" />
       </Container>
     )
-  ) : null;
+  ) : shuffledStock ? (
+    <Container style={{ gridArea: areaName }}>
+      <Swiper
+        modules={[EffectFlip, Autoplay]}
+        effect="flip"
+        direction="vertical"
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }}
+        loop={true}
+        speed={800}
+        grabCursor={true}
+        className="mySwiper"
+      >
+        {shuffledStock?.map((data: any, index: number) => (
+          <SwiperSlide key={index}>
+            <div className="contents">
+              <div className="money_type">{data.name}</div>
+              <div className="money">
+                <div className="detail">{data.amount}</div>
+                <div
+                  className="percent"
+                  style={
+                    data.percent < 0
+                      ? { backgroundColor: "var(--sub-color-bl)" }
+                      : { backgroundColor: "var(--sub-color-r)" }
+                  }
+                >
+                  {data.percent < 0 ? `${data.percent}` : `+${data.percent}`}
+                </div>
+              </div>
+              <div className="date">{new Date().toLocaleDateString()}</div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>{" "}
+    </Container>
+  ) : (
+    <Container style={{ gridArea: areaName }}>
+      <GridLoader color="var(--gray-3)" />
+    </Container>
+  );
 };
 
 export default RatesWrap;

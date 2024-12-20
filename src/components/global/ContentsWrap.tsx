@@ -7,6 +7,7 @@ const Container = styled.div`
   padding: 0 25px;
   background-color: var(--sub-color-wh);
   border-radius: 20px;
+  height: auto;
   .title_wrap {
     width: 100%;
     padding: 15px 0;
