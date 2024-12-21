@@ -6,7 +6,7 @@ import {
   faList,
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IsOpenContext } from "./context/IsOpenContext";
 import PopUpContents from "./PopUpContents";
 
@@ -62,7 +62,9 @@ const Container = styled.div`
 
 const SubEffectButton = () => {
   const [isClick, setIsClick] = useState<boolean>(false);
-  const { setIsOpen } = useContext(IsOpenContext)!;
+  const [isCalOpen, setIsCalOpen] = useState<boolean>(false);
+  const [isTodoOpen, setIsTodoOpen] = useState<boolean>(false);
+  const { isOpen, setIsOpen } = useContext(IsOpenContext)!;
 
   const clickHandler = (): void => {
     if (isClick === false) {
@@ -74,17 +76,28 @@ const SubEffectButton = () => {
 
   const calHandler = () => {
     setIsOpen(true);
+    setIsCalOpen(true);
   };
 
   const todoHandler = () => {
     setIsOpen(true);
+    setIsTodoOpen(true);
   };
+
+  useEffect(() => {
+    if (isOpen === false) {
+      setIsCalOpen(false);
+      setIsTodoOpen(false);
+    }
+  }, [isOpen]);
+  console.log(isCalOpen);
+  console.log(isTodoOpen);
 
   return (
     <>
-    <PopUpContents>
-      <></>
-    </PopUpContents>
+      <PopUpContents>
+        <></>
+      </PopUpContents>
       <Container>
         <motion.div
           className="plus_button"
