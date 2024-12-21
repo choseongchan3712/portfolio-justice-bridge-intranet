@@ -30,3 +30,8 @@ export interface RatesWrapType {
 export interface PopUpContentsType {
   children: React.ReactNode;
 }
+
+export interface DocContainerType {
+  areaName: string;
+  title: string;
+}
