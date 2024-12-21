@@ -33,6 +33,15 @@ img {
   --sub-color-gr-light: #7AE3A1;
   --sub-color-y: #FACA77;
 
+  --snow-light: #7988A6;
+  --snow-dark: #1C2F4F;
+  --sunny-light: #F1C648;
+  --sunny-dark: #EC7263;
+  --cloud-light: #7FB8EE;
+  --cloud-dark: #388DE8;
+  --rain-light: #494E79;
+  --rain-dark: #2A315D;
+
   --gray-1: #F3F3F3;
   --gray-2: #DAD9DA;
   --gray-3: #A09D9F;
@@ -43,6 +52,9 @@ img {
 
   --big-size: 60px;
   --heading-size: 32px;
+  --weather-icon: 45px;
+  --time-size: 40px;
+  --top-size: 24px;
   --title-size: 20px;
   --normal-size: 16px;
   --medium-size: 14px;
