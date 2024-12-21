@@ -102,14 +102,14 @@ const WeatherContents = () => {
     setDate(now.format("MM.DD"));
   }, []);
 
-  useEffect(() => {
-    updateTime();
-    const interval = setInterval(() => {
-      updateTime();
-    }, 60000);
+  // useEffect(() => {
+  //   updateTime();
+  //   const interval = setInterval(() => {
+  //     updateTime();
+  //   }, 60000);
 
-    return () => clearInterval(interval);
-  }, [updateTime]); //! updateTime이 변경될 때만 useEffect가 실행
+  //   return () => clearInterval(interval);
+  // }, [updateTime]); //! updateTime이 변경될 때만 useEffect가 실행
 
   // useEffect(() => {
   //   if (navigator.geolocation) {
@@ -164,25 +164,25 @@ const WeatherContents = () => {
   //   }
   // }, [locationToGrid, nowTime]);
 
-  // const updateDoWeather = useCallback(() => {
-  //   if (weather) {
-  //     const doWeather = weather?.data?.response?.body?.items?.item?.filter(
-  //       (data: any) => data.fcstTime === nowTime.searchTime
-  //     );
-  //     const temp = doWeather?.filter((data: any) => data.category === "T1H")[0]
-  //       ?.fcstValue;
-  //     const sky = doWeather?.filter((data: any) => data.category === "SKY")[0]
-  //       ?.fcstValue;
-  //     const isRain = doWeather?.filter(
-  //       (data: any) => data.category === "PTY"
-  //     )[0]?.fcstValue;
-  //     setUseWeather({ temperature: temp, weather: sky, isRain: isRain });
-  //   }
-  // }, [weather]);
+  const updateDoWeather = useCallback(() => {
+    if (weather) {
+      const doWeather = weather?.data?.response?.body?.items?.item?.filter(
+        (data: any) => data.fcstTime === nowTime.searchTime
+      );
+      const temp = doWeather?.filter((data: any) => data.category === "T1H")[0]
+        ?.fcstValue;
+      const sky = doWeather?.filter((data: any) => data.category === "SKY")[0]
+        ?.fcstValue;
+      const isRain = doWeather?.filter(
+        (data: any) => data.category === "PTY"
+      )[0]?.fcstValue;
+      setUseWeather({ temperature: temp, weather: sky, isRain: isRain });
+    }
+  }, [weather]);
 
-  // useEffect(() => {
-  //   updateDoWeather();
-  // }, [updateDoWeather]);
+  useEffect(() => {
+    updateDoWeather();
+  }, [updateDoWeather]);
 
   return weather ? (
     <Container

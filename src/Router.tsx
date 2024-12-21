@@ -12,6 +12,9 @@ import Law from "./pages/Law";
 import Management from "./pages/Management";
 import Setting from "./pages/Setting";
 import Notice from "./pages/Notice";
+import SubEffectButton from "./components/global/SubEffectButton";
+import PopUpContents from "./components/global/PopUpContents";
+import { IsOpenProvider } from "./components/global/provider/IsOpenProvider";
 
 const Router = () => {
   const [isLogin, setIsLogin] = useState<boolean>(false);
@@ -35,18 +38,56 @@ const Router = () => {
       <GoLoginProvider>
         <GoPasswordProvider>
           <GoSignUpProvider>
-            {isLogin ? <Header /> : null}
-            <Routes>
-              <Route path="/" element={isLogin ? <Navigate to={"/main"} /> : <Navigate to={"/login"} />} />
-              <Route path="/login" element={isLogin ? <Navigate to={"/main"} /> : <Login />} />
-              <Route path="/main" element={isLogin ? <Main /> : <Navigate to={"/login"} />} />
-              <Route path="/chat" element={isLogin ? <Chat /> : <Navigate to={"/login"} />} />
-              <Route path="/document" element={isLogin ? <Document /> : <Navigate to={"/login"} />} />
-              <Route path="/law" element={isLogin ? <Law /> : <Navigate to={"/login"} />} />
-              <Route path="/notice" element={isLogin? <Notice /> : <Navigate to={"/login"} />} />
-              <Route path="/management" element={isLogin ? <Management /> : <Navigate to={"/login"} />} />
-              <Route path="/setting" element={isLogin ? <Setting /> : <Navigate to={"/login"} />} />
-            </Routes>
+            <IsOpenProvider>
+              {isLogin ? <Header /> : null}
+              {isLogin ? <SubEffectButton /> : null}
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    isLogin ? (
+                      <Navigate to={"/main"} />
+                    ) : (
+                      <Navigate to={"/login"} />
+                    )
+                  }
+                />
+                <Route
+                  path="/login"
+                  element={isLogin ? <Navigate to={"/main"} /> : <Login />}
+                />
+                <Route
+                  path="/main"
+                  element={isLogin ? <Main /> : <Navigate to={"/login"} />}
+                />
+                <Route
+                  path="/chat"
+                  element={isLogin ? <Chat /> : <Navigate to={"/login"} />}
+                />
+                <Route
+                  path="/document"
+                  element={isLogin ? <Document /> : <Navigate to={"/login"} />}
+                />
+                <Route
+                  path="/law"
+                  element={isLogin ? <Law /> : <Navigate to={"/login"} />}
+                />
+                <Route
+                  path="/notice"
+                  element={isLogin ? <Notice /> : <Navigate to={"/login"} />}
+                />
+                <Route
+                  path="/management"
+                  element={
+                    isLogin ? <Management /> : <Navigate to={"/login"} />
+                  }
+                />
+                <Route
+                  path="/setting"
+                  element={isLogin ? <Setting /> : <Navigate to={"/login"} />}
+                />
+              </Routes>
+            </IsOpenProvider>
           </GoSignUpProvider>
         </GoPasswordProvider>
       </GoLoginProvider>

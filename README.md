@@ -12,3 +12,4 @@
 - [X] npm install swiper
 - [X] npm install react-spinners --save
 - [X] npm install dayjs
+- [X] npm install motion

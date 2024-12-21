@@ -26,3 +26,7 @@ export interface RatesWrapType {
   type: string;
   areaName: string;
 }
+
+export interface PopUpContentsType {
+  children: React.ReactNode;
+}

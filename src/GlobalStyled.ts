@@ -45,6 +45,7 @@ img {
   --gray-1: #F3F3F3;
   --gray-2: #DAD9DA;
   --gray-3: #A09D9F;
+  --op-gray-2: rgba(218,217,218,0.4);
 
   --back-y: #FFFBEA;
   --back-gr: #F0FDF4;
