@@ -13,3 +13,9 @@
 - [X] npm install react-spinners --save
 - [X] npm install dayjs
 - [X] npm install motion
+- [X] npm install mathjs
+- [X] npm install docx
+- [X] npm install --save-dev @types/file-saver
+- [X] npm install file-saver
+- [X] npm install html-docx-js
+

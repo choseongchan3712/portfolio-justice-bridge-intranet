@@ -5,7 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
-  position: absolute;
+  position: fixed;
   z-index: 500;
   top: 0;
   right: 0;

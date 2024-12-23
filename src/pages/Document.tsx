@@ -57,7 +57,7 @@ const Document = () => {
             <DocContainer areaName="plaint" title="고소장"></DocContainer>
             <DocContainer
               areaName="withdraw"
-              title="고소취하서서"
+              title="고소취하서"
             ></DocContainer>
           </GridWrap>
         </ContentsWrap>

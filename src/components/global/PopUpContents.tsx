@@ -31,6 +31,7 @@ const Container = styled.div`
     transform: scale(0);
     transition: 0.25s ease-in-out;
     transform-origin: center;
+    overflow: hidden;
     .x_mark {
       position: absolute;
       z-index: 992;

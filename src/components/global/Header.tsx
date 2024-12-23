@@ -14,11 +14,12 @@ import {
 import HeaderWrap from "./HeaderWrap";
 
 const Nav = styled.div`
-  position: absolute;
+  position: fixed;
   z-index: 500;
   top: 0;
   left: 0;
-  height: 100vh;
+  min-height: 100vh;
+  height: fit-content;
   width: var(--nav-width);
   box-shadow: 1px 0 5px var(--gray-3);
   background-color: var(--sub-color-wh);
@@ -40,7 +41,7 @@ const Nav = styled.div`
   .menu_wrap {
     padding-top: 90px;
     width: 100%;
-    height: calc(100vh - var(--header-height));
+    height: calc(100% - var(--header-height));
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -17,7 +17,10 @@ import PopUpContents from "./components/global/PopUpContents";
 import { IsOpenProvider } from "./components/global/provider/IsOpenProvider";
 
 const Router = () => {
-  const [isLogin, setIsLogin] = useState<boolean>(false);
+  const [isLogin, setIsLogin] = useState<boolean>(() => {
+    const login = localStorage.getItem("login");
+    return login === "true";
+  });
 
   useEffect(() => {
     const login = localStorage.getItem("login");

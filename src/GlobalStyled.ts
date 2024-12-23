@@ -52,9 +52,9 @@ img {
   --back-r: #FBEDEC;
 
   --big-size: 60px;
-  --heading-size: 32px;
   --weather-icon: 45px;
   --time-size: 40px;
+  --heading-size: 32px;
   --top-size: 24px;
   --title-size: 20px;
   --normal-size: 16px;

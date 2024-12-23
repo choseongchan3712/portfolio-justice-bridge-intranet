@@ -9,6 +9,7 @@ import {
 import { useContext, useEffect, useState } from "react";
 import { IsOpenContext } from "./context/IsOpenContext";
 import PopUpContents from "./PopUpContents";
+import CalculateContents from "./subEffect/CalculateContents";
 
 const Container = styled.div`
   position: fixed;
@@ -90,13 +91,11 @@ const SubEffectButton = () => {
       setIsTodoOpen(false);
     }
   }, [isOpen]);
-  console.log(isCalOpen);
-  console.log(isTodoOpen);
 
   return (
     <>
       <PopUpContents>
-        <></>
+        {isCalOpen ? <CalculateContents></CalculateContents> : <></>}
       </PopUpContents>
       <Container>
         <motion.div

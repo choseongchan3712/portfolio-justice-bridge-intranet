@@ -35,3 +35,9 @@ export interface DocContainerType {
   areaName: string;
   title: string;
 }
+
+export interface LawContainerType {
+  color: string;
+  areaName: string;
+  children: React.ReactNode;
+}
