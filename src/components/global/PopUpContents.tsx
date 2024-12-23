@@ -6,6 +6,7 @@ import { PopUpContentsType } from "../../type";
 import { IsOpenContext } from "./context/IsOpenContext";
 import { IsCalOpenContext } from "./context/IsCalOpenContext";
 import CalculateContents from "./subEffect/CalculateContents";
+import { DocContext } from "./context/DocContext";
 
 const Container = styled.div`
   position: fixed;
@@ -51,6 +52,18 @@ const PopUpContents = () => {
   const contentsRef = useRef<HTMLDivElement | null>(null);
   const { isOpen, setIsOpen } = useContext(IsOpenContext)!;
   const { isCalOpen } = useContext(IsCalOpenContext)!;
+  const { isWorkReOpen } = useContext(DocContext)!;
+  const { isDayReOpen } = useContext(DocContext)!;
+  const { isWeekReOpen } = useContext(DocContext)!;
+  const { isMonthReOpen } = useContext(DocContext)!;
+  const { isCivilComplaintOpen } = useContext(DocContext)!;
+  const { isAgreementOpen } = useContext(DocContext)!;
+  const { isPlaintOpen } = useContext(DocContext)!;
+  const { isWithdrawOpen } = useContext(DocContext)!;
+  const { isAdminComplaintOpen } = useContext(DocContext)!;
+  const { isClaimOpen } = useContext(DocContext)!;
+  const { isIOUOpen } = useContext(DocContext)!;
+  const { isWaiverOpen } = useContext(DocContext)!;
 
   const clickHandler = () => {
     setIsOpen(false);

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { DocContainerType } from "../../type";
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { IsOpenContext } from "../global/context/IsOpenContext";
+import { DocContext } from "../global/context/DocContext";
 
 const Container = styled.div`
   position: relative;
@@ -45,15 +46,90 @@ const Container = styled.div`
 `;
 
 const DocContainer = ({ areaName, title }: DocContainerType) => {
+  const buttonRef = useRef<HTMLDivElement | null>(null);
   const { isOpen, setIsOpen } = useContext(IsOpenContext)!;
+  const {
+    isDayReOpen,
+    setIsDayReOpen,
+    isWorkReOpen,
+    setIsWorkReOpen,
+    isWeekReOpen,
+    setIsWeekReOpen,
+    isMonthReOpen,
+    setIsMonthReOpen,
+    isCivilComplaintOpen,
+    setIsCivilComplaintOpen,
+    isAgreementOpen,
+    setIsAgreementOpen,
+    isPlaintOpen,
+    setIsPlaintOpen,
+    isWithdrawOpen,
+    setIsWithdrawOpen,
+    isAdminComplaintOpen,
+    setIsAdminComplaintOpen,
+    isClaimOpen,
+    setIsClaimOpen,
+    isIOUOpen,
+    setIsIOUOpen,
+    isWaiverOpen,
+    setIsWaiverOpen,
+  } = useContext(DocContext)!;
+
   const clickHandler = () => {
     setIsOpen(true);
+    const title: string = `${
+      buttonRef?.current?.parentNode?.querySelector(".title")?.textContent
+    }`;
+
+    if (title === "업무보고") {
+      setIsWorkReOpen(true);
+    } else if (title === "일간보고") {
+      setIsDayReOpen(true);
+    } else if (title === "주간간보고") {
+      setIsWeekReOpen(true);
+    } else if (title === "월간보고") {
+      setIsMonthReOpen(true);
+    } else if (title === "민사소장") {
+      setIsCivilComplaintOpen(true);
+    } else if (title === "관할합의서") {
+      setIsAgreementOpen(true);
+    } else if (title === "고소장") {
+      setIsPlaintOpen(true);
+    } else if (title === "고소취하서") {
+      setIsWithdrawOpen(true);
+    } else if (title === "행정소장") {
+      setIsAdminComplaintOpen(true);
+    } else if (title === "행정심판 청구") {
+      setIsClaimOpen(true);
+    } else if (title === "금전차용증서") {
+      setIsIOUOpen(true);
+    } else if (title === "포기각서") {
+      setIsWaiverOpen(true);
+    }
   };
+
+  useEffect(() => {
+    if (isOpen === false) {
+      setIsWorkReOpen(false);
+      setIsDayReOpen(false);
+      setIsWeekReOpen(false);
+      setIsMonthReOpen(false);
+      setIsCivilComplaintOpen(false);
+      setIsAgreementOpen(false);
+      setIsPlaintOpen(false);
+      setIsWithdrawOpen(false);
+      setIsAdminComplaintOpen(false);
+      setIsClaimOpen(false);
+      setIsIOUOpen(false);
+      setIsWaiverOpen(false);
+    }
+  }, [isOpen]);
+
   return (
     <Container style={{ gridArea: areaName }} className={areaName}>
       <div className="detail_wrap">
         <div className="title">{title}</div>
-        <div className="write_button" onClick={clickHandler}>
+        <div className="write_button" onClick={clickHandler} ref={buttonRef}>
           작성하기
         </div>
       </div>

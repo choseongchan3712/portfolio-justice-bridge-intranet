@@ -38,10 +38,10 @@ const Document = () => {
             height="auto"
             areas="'complaint agreement'"
           >
-            <DocContainer areaName="complaint" title="소장"></DocContainer>
+            <DocContainer areaName="complaint" title="민사소장"></DocContainer>
             <DocContainer
               areaName="agreement"
-              title="관할합의서서"
+              title="관할합의서"
             ></DocContainer>
           </GridWrap>
         </ContentsWrap>
@@ -70,7 +70,7 @@ const Document = () => {
             height="auto"
             areas="'admin_plaint judgment'"
           >
-            <DocContainer areaName="admin_plaint" title="소장"></DocContainer>
+            <DocContainer areaName="admin_plaint" title="행정소장"></DocContainer>
             <DocContainer
               areaName="judgment"
               title="행정심판 청구"
