@@ -4,6 +4,8 @@ import { useContext, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { PopUpContentsType } from "../../type";
 import { IsOpenContext } from "./context/IsOpenContext";
+import { IsCalOpenContext } from "./context/IsCalOpenContext";
+import CalculateContents from "./subEffect/CalculateContents";
 
 const Container = styled.div`
   position: fixed;
@@ -44,10 +46,11 @@ const Container = styled.div`
   }
 `;
 
-const PopUpContents = ({ children }: PopUpContentsType) => {
+const PopUpContents = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const contentsRef = useRef<HTMLDivElement | null>(null);
   const { isOpen, setIsOpen } = useContext(IsOpenContext)!;
+  const { isCalOpen } = useContext(IsCalOpenContext)!;
 
   const clickHandler = () => {
     setIsOpen(false);
@@ -75,7 +78,7 @@ const PopUpContents = ({ children }: PopUpContentsType) => {
           className="x_mark"
           onClick={clickHandler}
         />
-        {children}
+        {isCalOpen ? <CalculateContents></CalculateContents> : <></>}
       </div>
     </Container>
   );

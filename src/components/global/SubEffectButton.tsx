@@ -10,6 +10,7 @@ import { useContext, useEffect, useState } from "react";
 import { IsOpenContext } from "./context/IsOpenContext";
 import PopUpContents from "./PopUpContents";
 import CalculateContents from "./subEffect/CalculateContents";
+import { IsCalOpenContext } from "./context/IsCalOpenContext";
 
 const Container = styled.div`
   position: fixed;
@@ -63,7 +64,7 @@ const Container = styled.div`
 
 const SubEffectButton = () => {
   const [isClick, setIsClick] = useState<boolean>(false);
-  const [isCalOpen, setIsCalOpen] = useState<boolean>(false);
+  const {setIsCalOpen} = useContext(IsCalOpenContext)!;
   const [isTodoOpen, setIsTodoOpen] = useState<boolean>(false);
   const { isOpen, setIsOpen } = useContext(IsOpenContext)!;
 
@@ -93,10 +94,6 @@ const SubEffectButton = () => {
   }, [isOpen]);
 
   return (
-    <>
-      <PopUpContents>
-        {isCalOpen ? <CalculateContents></CalculateContents> : <></>}
-      </PopUpContents>
       <Container>
         <motion.div
           className="plus_button"
@@ -128,7 +125,6 @@ const SubEffectButton = () => {
           <FontAwesomeIcon icon={faList} />
         </motion.div>
       </Container>
-    </>
   );
 };
 
