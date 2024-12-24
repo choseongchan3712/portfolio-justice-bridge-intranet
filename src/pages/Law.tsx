@@ -62,7 +62,7 @@ const Law = () => {
             </LawContainer>
             <LawContainer areaName="box3" color="var(--point-color-y)">
               <FontAwesomeIcon icon={faHandcuffs} />
-              <div>성폭력범죄의<br/> 처벌 등에 관한 <br/>특례법</div>
+              <div>성폭력범죄의 처벌 <br/>등에 관한 특례법</div>
             </LawContainer>
             <LawContainer areaName="box4" color="var(--point-color-y)">
               <FontAwesomeIcon icon={faHandcuffs} />
@@ -112,11 +112,11 @@ const Law = () => {
             </LawContainer>
             <LawContainer areaName="box2" color="var(--snow-dark)">
               <FontAwesomeIcon icon={faDumpster} />
-              <div>회사법</div>
+              <div>어음법</div>
             </LawContainer>
             <LawContainer areaName="box3" color="var(--snow-dark)">
               <FontAwesomeIcon icon={faDumpster} />
-              <div>전자상거래 등에서의 소비자보호에 관한 법률</div>
+              <div>전자상거래 등에서의 <br/>소비자보호에 <br/>관한 법률</div>
             </LawContainer>
             <LawContainer areaName="box4" color="var(--snow-dark)">
               <FontAwesomeIcon icon={faDumpster} />
@@ -147,7 +147,7 @@ const Law = () => {
             </LawContainer>
             <LawContainer areaName="box4" color="var(--cloud-dark)">
               <FontAwesomeIcon icon={faGavel} />
-              <div>공공기관의 정보공개에 관한 법률</div>
+              <div>공공기관의 <br/>정보공개에 관한 법률</div>
             </LawContainer>
           </GridWrap>
         </ContentsWrap>

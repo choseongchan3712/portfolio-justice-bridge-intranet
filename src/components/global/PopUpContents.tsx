@@ -15,6 +15,8 @@ import AdminComplaint from "../document/docs/AdminComplaint";
 import Claim from "../document/docs/Claim";
 import IOU from "../document/docs/IOU";
 import Waiver from "../document/docs/Waiver";
+import { LawContext } from "./context/LawContext";
+import LawWrap from "../law/LawWrap";
 
 const Container = styled.div`
   position: fixed;
@@ -60,18 +62,47 @@ const PopUpContents = () => {
   const contentsRef = useRef<HTMLDivElement | null>(null);
   const { isOpen, setIsOpen } = useContext(IsOpenContext)!;
   const { isCalOpen } = useContext(IsCalOpenContext)!;
-  const { isWorkReOpen } = useContext(DocContext)!;
-  const { isDayReOpen } = useContext(DocContext)!;
-  const { isWeekReOpen } = useContext(DocContext)!;
-  const { isMonthReOpen } = useContext(DocContext)!;
-  const { isCivilComplaintOpen } = useContext(DocContext)!;
-  const { isAgreementOpen } = useContext(DocContext)!;
-  const { isPlaintOpen } = useContext(DocContext)!;
-  const { isWithdrawOpen } = useContext(DocContext)!;
-  const { isAdminComplaintOpen } = useContext(DocContext)!;
-  const { isClaimOpen } = useContext(DocContext)!;
-  const { isIOUOpen } = useContext(DocContext)!;
-  const { isWaiverOpen } = useContext(DocContext)!;
+  const {
+    isWorkReOpen,
+    isDayReOpen,
+    isWeekReOpen,
+    isMonthReOpen,
+    isCivilComplaintOpen,
+    isAgreementOpen,
+    isPlaintOpen,
+    isWithdrawOpen,
+    isAdminComplaintOpen,
+    isClaimOpen,
+    isIOUOpen,
+    isWaiverOpen,
+  } = useContext(DocContext)!;
+
+  const {
+    isPublic1Open,
+    isPublic2Open,
+    isPublic3Open,
+    isPublic4Open,
+    isCriminal1Open,
+    isCriminal2Open,
+    isCriminal3Open,
+    isCriminal4Open,
+    isCivil1Open,
+    isCivil2Open,
+    isCivil3Open,
+    isCivil4Open,
+    isCommercial1Open,
+    isCommercial2Open,
+    isCommercial3Open,
+    isCommercial4Open,
+    isAdministrative1Open,
+    isAdministrative2Open,
+    isAdministrative3Open,
+    isAdministrative4Open,
+    isProcedural1Open,
+    isProcedural2Open,
+    isProcedural3Open,
+    isProcedural4Open,
+  } = useContext(LawContext)!;
 
   const clickHandler = () => {
     setIsOpen(false);
@@ -115,8 +146,58 @@ const PopUpContents = () => {
           <Claim />
         ) : isIOUOpen ? (
           <IOU />
+        ) : isWaiverOpen ? (
+          <Waiver />
+        ) : isPublic1Open ? (
+          <LawWrap id="001444"/>
+        ) : isPublic2Open ? (
+          <LawWrap id="001719"/>
+        ) : isPublic3Open ? (
+          <LawWrap id="001653"/>
+        ) : isPublic4Open ? (
+          <LawWrap id="000985"/>
+        ) : isCriminal1Open ? (
+          <LawWrap id="001692"/>
+        ) : isCriminal2Open ? (
+          <LawWrap id="001133"/>
+        ) : isCriminal3Open ? (
+          <LawWrap id="011187"/>
+        ) : isCriminal4Open ? (
+          <LawWrap id="002044"/>
+        ) : isCivil1Open ? (
+          <LawWrap id="001706"/>
+        ) : isCivil2Open ? (
+          <LawWrap id="010569"/>
+        ) : isCivil3Open ? (
+          <LawWrap id="001697"/>
+        ) : isCivil4Open ? (
+          <LawWrap id="009276"/>
+        ) : isCommercial1Open ? (
+          <LawWrap id="001702"/>
+        ) : isCommercial2Open ? (
+          <LawWrap id="001230"/>
+        ) : isCommercial3Open ? (
+          <LawWrap id="009318"/>
+        ) : isCommercial4Open ? (
+          <LawWrap id="001591"/>
+        ) : isAdministrative1Open ? (
+          <LawWrap id="014041"/>
+        ) : isAdministrative2Open ? (
+          <LawWrap id="001362"/>
+        ) : isAdministrative3Open ? (
+          <LawWrap id="009295"/>
+        ) : isAdministrative4Open ? (
+          <LawWrap id="001357"/>
+        ) : isProcedural1Open ? (
+          <LawWrap id="001700"/>
+        ) : isProcedural2Open ? (
+          <LawWrap id="001671"/>
+        ) : isProcedural3Open ? (
+          <LawWrap id="001206"/>
+        ) : isProcedural4Open ? (
+          <LawWrap id="001218"/>
         ) : (
-          isWaiverOpen ? <Waiver /> : <></>
+          <></>
         )}
       </div>
     </Container>
