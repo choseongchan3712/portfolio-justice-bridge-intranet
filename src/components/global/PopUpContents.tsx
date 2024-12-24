@@ -7,6 +7,14 @@ import { IsOpenContext } from "./context/IsOpenContext";
 import { IsCalOpenContext } from "./context/IsCalOpenContext";
 import CalculateContents from "./subEffect/CalculateContents";
 import { DocContext } from "./context/DocContext";
+import CivilLitigationComplaint from "../document/docs/CivilLitigationComplaint";
+import Agreement from "../document/docs/Agreement";
+import Plaint from "../document/docs/Plaint";
+import Withdraw from "../document/docs/Withdraw";
+import AdminComplaint from "../document/docs/AdminComplaint";
+import Claim from "../document/docs/Claim";
+import IOU from "../document/docs/IOU";
+import Waiver from "../document/docs/Waiver";
 
 const Container = styled.div`
   position: fixed;
@@ -24,7 +32,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 20px 30px 20px 20px;
     position: absolute;
     z-index: 991;
     width: 70%;
@@ -91,7 +99,25 @@ const PopUpContents = () => {
           className="x_mark"
           onClick={clickHandler}
         />
-        {isCalOpen ? <CalculateContents></CalculateContents> : <></>}
+        {isCalOpen ? (
+          <CalculateContents></CalculateContents>
+        ) : isCivilComplaintOpen ? (
+          <CivilLitigationComplaint />
+        ) : isAgreementOpen ? (
+          <Agreement />
+        ) : isPlaintOpen ? (
+          <Plaint />
+        ) : isWithdrawOpen ? (
+          <Withdraw />
+        ) : isAdminComplaintOpen ? (
+          <AdminComplaint />
+        ) : isClaimOpen ? (
+          <Claim />
+        ) : isIOUOpen ? (
+          <IOU />
+        ) : (
+          isWaiverOpen ? <Waiver /> : <></>
+        )}
       </div>
     </Container>
   );

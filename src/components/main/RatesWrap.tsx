@@ -180,12 +180,12 @@ const RatesWrap = ({ type, areaName }: RatesWrapType) => {
           effect="flip"
           direction="vertical"
           autoplay={{
-            delay: 2500,
+            delay: 2000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
           }}
           loop={true}
-          speed={800}
+          speed={1000}
           grabCursor={true}
           className="mySwiper"
         >

@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 const Container = styled.form`
   margin: 0 auto;
-  width: 50%;
+  width: 100%;
   height: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
 `;

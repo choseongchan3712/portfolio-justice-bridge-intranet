@@ -6,9 +6,10 @@ width: 100%;
 display: flex;
 justify-content: space-between;
 align-items: center;
-font-size: 20px;
-font-weight: 700;
+font-size: var(--title-size);
+font-weight: 900;
 margin-bottom: 20px;
+color: var(--sub-color-b);
 `;
 
 interface TitleType {

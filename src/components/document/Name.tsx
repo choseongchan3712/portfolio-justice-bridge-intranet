@@ -7,8 +7,9 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 40px;
-  font-size: 30px;
+  font-size: var(--heading-size);
   font-weight: 900;
+  color: var(--sub-color-b);
 `;
 
 interface NameType {

@@ -5,11 +5,11 @@ const Container = styled.div`
 width: 100%;
 display: flex;
 justify-content: flex-start;
-font-size: 25px;
-font-weight: 700;
+font-size: var(--top-size);
+font-weight: 900;
 margin-top: 10px;
 margin-bottom: 30px;
-font-style: italic;
+color: var(--sub-color-b);
 `;
 
 interface Headingtype {
