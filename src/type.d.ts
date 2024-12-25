@@ -41,3 +41,19 @@ export interface LawContainerType {
   areaName: string;
   children: React.ReactNode;
 }
+
+export interface MemberType {
+  rank: string;
+  name: string;
+  position: string;
+}
+
+export interface TeamListType {
+  children: React.ReactNode;
+  team: string;
+}
+
+export interface GroupListType {
+  children: React.ReactNode;
+  group: string;
+}
