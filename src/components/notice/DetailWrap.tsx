@@ -17,26 +17,39 @@ const Container = styled.div`
     font-size: var(--title-size);
     font-weight: 900;
   }
+  .contents_wrap {
+    width: 100%;
+    height: calc(100% - 60px);
+    padding-top: 10px;
+    position: relative;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+  }
 `;
 
 const DetailWrap = () => {
   const [page, setPage] = useState<string>();
   const location = useLocation();
 
-  useEffect(()=>{
+  useEffect(() => {
     if (location.pathname === "/notice") {
       setPage("회사 게시물");
     } else if (location.pathname === "/notice/group") {
-      setPage("부서 게시물")
+      setPage("부서 게시물");
     } else if (location.pathname === "/notice/team") {
-      setPage("팀 게시물")
+      setPage("팀 게시물");
     }
-  }, [location])
+  }, [location]);
 
   return (
     <Container>
       <div className="header">{page}</div>
-      <Outlet />
+      <div className="contents_wrap">
+        <Outlet />
+      </div>
     </Container>
   );
 };
