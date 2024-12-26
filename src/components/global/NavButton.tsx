@@ -45,30 +45,30 @@ const NavButton = ({ title, children, link }: NavButtonType) => {
   const [locationName, setLocationName] = useState<string>();
   const nowLocation = useLocation().pathname;
   const buttonRef = useRef<HTMLDivElement | null>(null);
-  
-  useEffect(()=>{
-    setLocation(nowLocation);
-  }, [nowLocation])
 
-  useEffect(()=>{
-    if (location === "/main") {
-      setLocationName("메인")
-    } else if (location === "/document") {
-      setLocationName("문서관리")
-    } else if (location === "/chat") {
-      setLocationName("채팅")
-    } else if (location === "/notice") {
-      setLocationName("게시판")
-    } else if (location === "/management") {
-      setLocationName("업무관리")
-    } else if (location === "/law") {
-      setLocationName("법률정보")
-    } else if (location === "/setting") {
-      setLocationName("설정")
+  useEffect(() => {
+    setLocation(nowLocation);
+  }, [nowLocation]);
+
+  useEffect(() => {
+    if (location?.includes("/main")) {
+      setLocationName("메인");
+    } else if (location?.includes("/document")) {
+      setLocationName("문서관리");
+    } else if (location?.includes("/chat")) {
+      setLocationName("채팅");
+    } else if (location?.includes("/notice")) {
+      setLocationName("게시판");
+    } else if (location?.includes("/management")) {
+      setLocationName("업무관리");
+    } else if (location?.includes("/law")) {
+      setLocationName("법률정보");
+    } else if (location?.includes("/setting")) {
+      setLocationName("설정");
     }
   }, [location]);
 
-  useEffect(()=>{
+  useEffect(() => {
     const buttonElement = buttonRef.current;
     const anchorElement = buttonElement?.querySelector<HTMLAnchorElement>("a");
 
@@ -99,13 +99,13 @@ const NavButton = ({ title, children, link }: NavButtonType) => {
         buttonElement.addEventListener("mouseleave", mouseLeaveHandler);
       }
     }
-  }, [locationName])
+  }, [locationName]);
 
   return (
     <Container ref={buttonRef}>
       <Link to={link}>
-      <div className="title">{title}</div>
-      {children}
+        <div className="title">{title}</div>
+        {children}
       </Link>
     </Container>
   );

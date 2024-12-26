@@ -19,6 +19,9 @@ import { IsCalOpenProvider } from "./components/global/provider/IsCalOpenProvide
 import { DocProvider } from "./components/global/provider/DocProvider";
 import { LawProvider } from "./components/global/provider/LawProvider";
 import { ChattingProvider } from "./components/chat/provider/ChattingProvider";
+import CompWrap from "./components/notice/CompWrap";
+import GroupWrap from "./components/notice/GroupWrap";
+import TeamWrap from "./components/notice/TeamWrap";
 
 const Router = () => {
   const [isLogin, setIsLogin] = useState<boolean>(() => {
@@ -99,7 +102,11 @@ const Router = () => {
                           element={
                             isLogin ? <Notice /> : <Navigate to={"/login"} />
                           }
-                        />
+                        >
+                          <Route index element={<CompWrap />} />
+                          <Route path="group" element={<GroupWrap />} />
+                          <Route path="team" element={<TeamWrap />} />
+                        </Route>
                         <Route
                           path="/management"
                           element={

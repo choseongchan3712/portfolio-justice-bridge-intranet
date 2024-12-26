@@ -59,6 +59,11 @@ export interface GroupListType {
 }
 
 export interface ListType {
-  name: string,
-  text: string,
+  name: string;
+  text: string;
+}
+
+export interface ListButtonType {
+  title: string;
+  link: string;
 }

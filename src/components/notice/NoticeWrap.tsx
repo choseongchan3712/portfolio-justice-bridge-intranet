@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import ListWrap from "./ListWrap";
+import DetailWrap from "./DetailWrap";
 
 const Container = styled.div`
   width: 100%;
@@ -8,10 +10,17 @@ const Container = styled.div`
   );
   border-radius: 20px;
   background-color: var(--sub-color-wh);
+  display: flex;
+  justify-content: space-between;
 `;
 
 const NoticeWrap = () => {
-  return <Container></Container>;
+  return (
+    <Container>
+      <ListWrap />
+      <DetailWrap />
+    </Container>
+  );
 };
 
 export default NoticeWrap;
