@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { TeamListType } from "../../../type";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 const Container = styled.div<{ isOpen: boolean }>`
   position: relative;
@@ -54,7 +54,7 @@ const TeamList = ({ children, team }: TeamListType) => {
   };
 
   return (
-    <Container isOpen = {isOpen}>
+    <Container isOpen={isOpen}>
       <div className="team" onClick={clickHandler}>
         <div className="team_click">+</div>
         {team}

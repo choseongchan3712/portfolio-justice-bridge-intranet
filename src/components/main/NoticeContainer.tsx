@@ -51,6 +51,7 @@ const Container = styled.div`
       border-radius: 5px;
       background-color: var(--gray-2);
       .per_bar {
+        border-radius: 5px;
         height: 100%;
         width: 50%;
       }
@@ -79,8 +80,7 @@ const Container = styled.div`
     }
   }
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 5px 5px 10px var(--gray-3);
+    box-shadow: 5px 5px 10px var(--gray-1);
   }
 `;
 

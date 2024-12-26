@@ -21,8 +21,7 @@ const Container = styled.div`
     font-size: var(--heading-size);
   }
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 5px 5px 10px var(--gray-3);
+    box-shadow: 5px 5px 10px var(--gray-2);
   }
 `;
 

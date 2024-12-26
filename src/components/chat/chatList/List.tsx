@@ -17,6 +17,7 @@ const Container = styled.div`
     margin-right: 10px;
   }
   .detail {
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
