@@ -126,3 +126,58 @@ export const groupChart: any[] = [
     ],
   },
 ];
+
+export const compNotice: any[] = [
+  {
+    id: 0,
+    title: "테스트 회사 게시물",
+    date: "2024-12-27",
+    name: "수달",
+    position: "변호사",
+    detail: "이 게시물은 테스트용 게시물 입니다.",
+  },
+  {
+    id: 1,
+    title: "테스트 회사 게시물2",
+    date: "2024-12-27",
+    name: "수달",
+    position: "변호사",
+    detail: "이 게시물은 테스트용 게시물 입니다.2",
+  },
+];
+export const groupNotice: any[] = [
+  {
+    id: 0,
+    title: "테스트 부서 게시물",
+    date: "2024-12-27",
+    name: "수달",
+    position: "변호사",
+    detail: "이 게시물은 테스트용 게시물 입니다.",
+  },
+  {
+    id: 1,
+    title: "테스트 부서 게시물2",
+    date: "2024-12-27",
+    name: "수달",
+    position: "변호사",
+    detail: "이 게시물은 테스트용 게시물 입니다.2",
+  },
+];
+export const teamNotice: any[] = [
+  {
+    id: 0,
+    title: "테스트 팀 게시물",
+    date: "2024-12-27",
+    name: "수달",
+    position: "변호사",
+    detail: "이 게시물은 테스트용 게시물 입니다.",
+  },
+  {
+    id: 1,
+    title: "테스트 팀 게시물2",
+    date: "2024-12-27",
+    name: "수달",
+    position: "변호사",
+    detail: "이 게시물은 테스트용 게시물 입니다.2",
+  },
+];

@@ -17,6 +17,11 @@ import IOU from "../document/docs/IOU";
 import Waiver from "../document/docs/Waiver";
 import { LawContext } from "./context/LawContext";
 import LawWrap from "../law/LawWrap";
+import { NoticeContext } from "../notice/context/NoticeContext";
+import CompDetail from "../notice/CompDetail";
+import NoticeWrite from "../notice/NoticeWrite";
+import GroupDetail from "../notice/GroupDetail";
+import TeamDetail from "../notice/TeamDetail";
 
 const Container = styled.div`
   position: fixed;
@@ -104,6 +109,9 @@ const PopUpContents = () => {
     isProcedural4Open,
   } = useContext(LawContext)!;
 
+  const { isCompOpen, isGroupOpen, isTeamOpen, isWriteOpen } =
+    useContext(NoticeContext)!;
+
   const clickHandler = () => {
     setIsOpen(false);
   };
@@ -149,53 +157,61 @@ const PopUpContents = () => {
         ) : isWaiverOpen ? (
           <Waiver />
         ) : isPublic1Open ? (
-          <LawWrap id="001444"/>
+          <LawWrap id="001444" />
         ) : isPublic2Open ? (
-          <LawWrap id="001719"/>
+          <LawWrap id="001719" />
         ) : isPublic3Open ? (
-          <LawWrap id="001653"/>
+          <LawWrap id="001653" />
         ) : isPublic4Open ? (
-          <LawWrap id="000985"/>
+          <LawWrap id="000985" />
         ) : isCriminal1Open ? (
-          <LawWrap id="001692"/>
+          <LawWrap id="001692" />
         ) : isCriminal2Open ? (
-          <LawWrap id="001133"/>
+          <LawWrap id="001133" />
         ) : isCriminal3Open ? (
-          <LawWrap id="011187"/>
+          <LawWrap id="011187" />
         ) : isCriminal4Open ? (
-          <LawWrap id="002044"/>
+          <LawWrap id="002044" />
         ) : isCivil1Open ? (
-          <LawWrap id="001706"/>
+          <LawWrap id="001706" />
         ) : isCivil2Open ? (
-          <LawWrap id="010569"/>
+          <LawWrap id="010569" />
         ) : isCivil3Open ? (
-          <LawWrap id="001697"/>
+          <LawWrap id="001697" />
         ) : isCivil4Open ? (
-          <LawWrap id="009276"/>
+          <LawWrap id="009276" />
         ) : isCommercial1Open ? (
-          <LawWrap id="001702"/>
+          <LawWrap id="001702" />
         ) : isCommercial2Open ? (
-          <LawWrap id="001230"/>
+          <LawWrap id="001230" />
         ) : isCommercial3Open ? (
-          <LawWrap id="009318"/>
+          <LawWrap id="009318" />
         ) : isCommercial4Open ? (
-          <LawWrap id="001591"/>
+          <LawWrap id="001591" />
         ) : isAdministrative1Open ? (
-          <LawWrap id="014041"/>
+          <LawWrap id="014041" />
         ) : isAdministrative2Open ? (
-          <LawWrap id="001362"/>
+          <LawWrap id="001362" />
         ) : isAdministrative3Open ? (
-          <LawWrap id="009295"/>
+          <LawWrap id="009295" />
         ) : isAdministrative4Open ? (
-          <LawWrap id="001357"/>
+          <LawWrap id="001357" />
         ) : isProcedural1Open ? (
-          <LawWrap id="001700"/>
+          <LawWrap id="001700" />
         ) : isProcedural2Open ? (
-          <LawWrap id="001671"/>
+          <LawWrap id="001671" />
         ) : isProcedural3Open ? (
-          <LawWrap id="001206"/>
+          <LawWrap id="001206" />
         ) : isProcedural4Open ? (
-          <LawWrap id="001218"/>
+          <LawWrap id="001218" />
+        ) : isCompOpen ? (
+          <CompDetail />
+        ) : isWriteOpen ? (
+          <NoticeWrite />
+        ) : isGroupOpen ? (
+          <GroupDetail />
+        ) : isTeamOpen ? (
+          <TeamDetail />
         ) : (
           <></>
         )}

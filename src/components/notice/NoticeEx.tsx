@@ -12,6 +12,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     border-radius: 10px;
+    font-size: var(--normal-size);
     .date {
       width: 20%;
       height: 70%;

@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import styled from "styled-components";
+import { IsOpenContext } from "../global/context/IsOpenContext";
+import { NoticeContext } from "./context/NoticeContext";
 
 const Container = styled.div`
   width: 80%;
@@ -12,10 +14,22 @@ const Container = styled.div`
     border-bottom: 1px solid var(--gray-2);
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     color: var(--sub-color-b);
     font-size: var(--title-size);
     font-weight: 900;
+    .plus {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--gray-3);
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: var(--normal-size);
+      color: var(--sub-color-wh);
+    }
   }
   .contents_wrap {
     width: 100%;
@@ -33,6 +47,8 @@ const Container = styled.div`
 const DetailWrap = () => {
   const [page, setPage] = useState<string>();
   const location = useLocation();
+  const { setIsOpen } = useContext(IsOpenContext)!;
+  const { setIsWriteOpen } = useContext(NoticeContext)!;
 
   useEffect(() => {
     if (location.pathname === "/notice") {
@@ -44,9 +60,19 @@ const DetailWrap = () => {
     }
   }, [location]);
 
+  const clickHandler = () => {
+    setIsOpen(true);
+    setIsWriteOpen(true);
+  };
+
   return (
     <Container>
-      <div className="header">{page}</div>
+      <div className="header">
+        <div className="page_name">{page}</div>
+        <div className="plus" onClick={clickHandler}>
+          +
+        </div>
+      </div>
       <div className="contents_wrap">
         <Outlet />
       </div>

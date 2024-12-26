@@ -67,3 +67,12 @@ export interface ListButtonType {
   title: string;
   link: string;
 }
+
+export interface CompContentsType {
+  id: string;
+  date: string;
+  title: string;
+  name: string;
+  position: string;
+  detail: string;
+}
