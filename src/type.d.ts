@@ -57,3 +57,8 @@ export interface GroupListType {
   children: React.ReactNode;
   group: string;
 }
+
+export interface ListType {
+  name: string,
+  text: string,
+}

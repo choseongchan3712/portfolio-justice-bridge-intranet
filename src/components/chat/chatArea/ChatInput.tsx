@@ -1,8 +1,9 @@
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
+import { ChattingContext } from "../context/ChattingContext";
 
 const Container = styled.div`
   width: 100%;
@@ -58,10 +59,11 @@ const Container = styled.div`
 
 interface ChatInputType {
   message: any;
-  setMessage: (data:any)=>void;
+  setMessage: (data: any) => void;
 }
 
 const ChatInput = ({ message, setMessage }: ChatInputType) => {
+  const { chatting, setChatting } = useContext(ChattingContext)!;
   const {
     register,
     handleSubmit,
@@ -74,6 +76,11 @@ const ChatInput = ({ message, setMessage }: ChatInputType) => {
       setMessage([...message, data.input]);
     } else {
       setMessage([data.input]);
+    }
+    if (chatting) {
+      setChatting({ ...chatting, text: [...chatting.text, data.input] });
+    } else {
+      setChatting("");
     }
     reset();
   };

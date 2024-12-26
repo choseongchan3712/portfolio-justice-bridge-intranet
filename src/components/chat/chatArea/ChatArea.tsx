@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import TitleWrap from "../TitleWrap";
 import ChatInput from "./ChatInput";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import ChatText from "./ChatText";
+import { ChattingContext } from "../context/ChattingContext";
 
 const Container = styled.div`
   position: relative;
@@ -25,19 +26,30 @@ const Container = styled.div`
 
 const ChatArea = () => {
   const [message, setMessage] = useState<any>();
-  
+  const { chatting } = useContext(ChattingContext)!;
+
   return (
     <Container>
       <TitleWrap>
-        <div className="profile"></div>
-        <div className="name">김도윤</div>
+        {chatting ? (
+          <>
+            <div className="profile"></div>
+            <div className="name">{chatting.name}</div>
+          </>
+        ) : (
+          <div className="name">채팅</div>
+        )}
       </TitleWrap>
       <div className="chatting">
-        {message ? message.map((data:string, index:number)=>(
-          <ChatText text={data} key={index}/>
-        )) : <></>}
+        {chatting ? (
+          chatting.text.map((data: string, index: number) => (
+            <ChatText text={data} key={index} />
+          ))
+        ) : (
+          <></>
+        )}
       </div>
-      <ChatInput message={message} setMessage={setMessage}/>
+      <ChatInput message={message} setMessage={setMessage} />
     </Container>
   );
 };

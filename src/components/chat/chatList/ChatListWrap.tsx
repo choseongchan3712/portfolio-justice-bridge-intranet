@@ -1,5 +1,9 @@
 import styled from "styled-components";
 import TitleWrap from "../TitleWrap";
+import { ChattingContext } from "../context/ChattingContext";
+import { useContext, useEffect } from "react";
+import { text } from "@fortawesome/fontawesome-svg-core";
+import List from "./List";
 
 const Container = styled.div`
   height: 100%;
@@ -14,11 +18,18 @@ const Container = styled.div`
 `;
 
 const ChatListWrap = () => {
+  const { chatting, setChatting } = useContext(ChattingContext)!;
+
   return (
     <Container>
       <TitleWrap>
         <div className="list">채팅 리스트</div>
       </TitleWrap>
+      {chatting ? (
+        <List name={chatting.name} text={chatting.text[text.length - 1]} />
+      ) : (
+        <></>
+      )}
     </Container>
   );
 };
