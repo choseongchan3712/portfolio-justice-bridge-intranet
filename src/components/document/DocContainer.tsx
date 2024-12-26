@@ -21,7 +21,7 @@ const Container = styled.div`
     align-items: center;
     justify-content: space-between;
     .title {
-      font-size: var(--top-size);
+      font-size: var(--title-size);
       font-weight: 900;
       color: var(--sub-color-b);
     }

@@ -15,13 +15,13 @@ const Container = styled.div`
   cursor: pointer;
   .title_wrap {
     width: 100%;
-    padding: 5px 0;
+    padding: 10px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
     .title {
       color: var(--sub-color-b);
-      font-size: var(--title-size);
+      font-size: var(--normal-size);
       font-weight: 900;
     }
   }
