@@ -31,6 +31,8 @@ const ThemeWrap = ({ color, text, bgColor }: colorType) => {
       localStorage.setItem("theme", "normal");
     } else if (conRef.current?.textContent === "다크") {
       localStorage.setItem("theme", "dark");
+    } else if (conRef.current?.textContent === "엣지") {
+      localStorage.setItem("theme", "edge");
     }
     setModify(true);
   };

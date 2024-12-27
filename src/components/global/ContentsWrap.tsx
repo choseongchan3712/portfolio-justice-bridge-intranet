@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { ContentsWrapType } from "../../type";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
+import { useContext } from "react";
+import { ThemeContext } from "./context/ThemeContext";
 
 const Container = styled.div`
   padding: 0 25px;
@@ -31,8 +33,19 @@ const Container = styled.div`
 `;
 
 const ContentsWrap = ({ className, title, children }: ContentsWrapType) => {
+  const { themeMode } = useContext(ThemeContext)!;
   return (
-    <Container className={className} style={{gridArea: className,}}>
+    <Container
+      className={className}
+      style={{
+        gridArea: className,
+        backgroundColor:
+          themeMode === "edge"
+            ? "rgba(237, 253, 232, 0.7)"
+            : "var(--sub-color-wh)",
+        backdropFilter: themeMode === "edge" ? "blur(5px)" : "unset",
+      }}
+    >
       <div className="title_wrap">
         <div className="title">{title}</div>
         <FontAwesomeIcon icon={faEllipsis} />

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import ListWrap from "./ListWrap";
 import DetailWrap from "./DetailWrap";
+import { ThemeContext } from "../global/context/ThemeContext";
+import { useContext } from "react";
 
 const Container = styled.div`
   width: 100%;
@@ -15,8 +17,17 @@ const Container = styled.div`
 `;
 
 const NoticeWrap = () => {
+  const { themeMode } = useContext(ThemeContext)!;
   return (
-    <Container>
+    <Container
+      style={{
+        backgroundColor:
+          themeMode === "edge"
+            ? "rgba(237, 253, 232, 0.7)"
+            : "var(--sub-color-wh)",
+        backdropFilter: themeMode === "edge" ? "blur(5px)" : "unset",
+      }}
+    >
       <ListWrap />
       <DetailWrap />
     </Container>

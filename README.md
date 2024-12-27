@@ -19,4 +19,6 @@
 - [X] npm install file-saver
 - [X] npm install html-docx-js
 - [X] npm i react-hook-form
+- [X] npm install three @react-three/fiber @react-three/drei
+- [X] npm install --save-dev @types/three
 

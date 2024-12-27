@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import ThemeWrap from "./ThemeWrap";
+import { ThemeContext } from "../global/context/ThemeContext";
+import { useContext } from "react";
 
 const Container = styled.div`
   width: 100%;
@@ -16,8 +18,17 @@ const Container = styled.div`
 `;
 
 const SettingWrap = () => {
+  const { themeMode } = useContext(ThemeContext)!;
   return (
-    <Container>
+    <Container
+      style={{
+        backgroundColor:
+          themeMode === "edge"
+            ? "rgba(237, 253, 232, 0.7)"
+            : "var(--sub-color-wh)",
+        backdropFilter: themeMode === "edge" ? "blur(5px)" : "unset",
+      }}
+    >
       <ThemeWrap text="일반" color="black" bgColor="#fafafa" />
       <ThemeWrap text="다크" color="white" bgColor="#333" />
       <ThemeWrap text="엣지" color="black" bgColor="#abffb2" />

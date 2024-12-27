@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import Three from "../../Three";
+import { ThemeContext } from "./context/ThemeContext";
+import { useContext } from "react";
 
 const Container = styled.div`
   width: 100vw;
@@ -16,7 +19,10 @@ interface WraperType {
 }
 
 const Wraper = ({children}:WraperType) => {
-  return <Container>{children}</Container>;
+  const { themeMode } = useContext(ThemeContext)!;
+  return <Container>
+    {themeMode === "edge" ? <Three /> : <></>}
+    {children}</Container>;
 };
 
 export default Wraper;
