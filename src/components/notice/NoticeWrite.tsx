@@ -1,4 +1,10 @@
+import dayjs from "dayjs";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import styled from "styled-components";
+import { compNotice, groupNotice, teamNotice } from "../../testData/textData";
+
+dayjs.locale("ko");
 
 const Container = styled.div`
   width: 100%;
@@ -105,23 +111,77 @@ const Container = styled.div`
 `;
 
 const NoticeWrite = () => {
+  const [write, setWrite] = useState<any>();
+  const [time, setTime] = useState<string>();
+  const [choice, setChoice] = useState<string>();
+  const [complete, setcomplete] = useState<boolean>(false);
+  const {
+    register,
+    reset,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data: any) => {
+    setWrite({
+      title: `${data.title}`,
+      name: "수달",
+      position: "변호사",
+      detail: `${data.detail}`,
+    });
+    setChoice(`${data.select}`);
+    reset();
+  };
+
+  useEffect(() => {
+    if (write) {
+      const nowTime = dayjs().format("YYYY-MM-DD");
+      setTime(nowTime);
+    }
+  }, [write]);
+
+  useEffect(() => {
+    if (time) {
+      setWrite({ ...write, date: time });
+      setcomplete(true);
+    }
+  }, [time]);
+
+  useEffect(() => {
+    if (complete) {
+      if (choice === "comp") {
+        compNotice.push(write);
+      } else if (choice === "group") {
+        groupNotice.push(write);
+      } else if (choice === "team") {
+        teamNotice.push(write);
+      }
+    }
+    setcomplete(false);
+  }, [complete]);
+
   return (
     <Container>
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="title_wrap">
           <div className="title">제목 :</div>
-          <input type="text" />
+          <input
+            type="text"
+            {...register("title", { required: "제목은 필수입니다." })}
+          />
         </div>
         <div className="detail_wrap">
           <div className="detail">게시글 :</div>
-          <textarea></textarea>
+          <textarea
+            {...register("detail", { required: "게시글 내용은 필수 입니다." })}
+          ></textarea>
         </div>
         <div className="select_wrap">
           <div className="select">등록 선택 : </div>
-          <select>
+          <select {...register("select")}>
             <option value="comp">회사 게시물</option>
-            <option value="comp">부서 게시물</option>
-            <option value="comp">팀 게시물</option>
+            <option value="group">부서 게시물</option>
+            <option value="team">팀 게시물</option>
           </select>
         </div>
         <button type="submit">등록하기</button>

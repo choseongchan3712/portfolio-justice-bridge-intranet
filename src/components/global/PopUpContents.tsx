@@ -206,12 +206,12 @@ const PopUpContents = () => {
           <LawWrap id="001218" />
         ) : isCompOpen ? (
           <CompDetail />
-        ) : isWriteOpen ? (
-          <NoticeWrite />
-        ) : isGroupOpen ? (
-          <GroupDetail />
         ) : isTeamOpen ? (
           <TeamDetail />
+        ) : isGroupOpen ? (
+          <GroupDetail />
+        ) : isWriteOpen ? (
+          <NoticeWrite />
         ) : (
           <></>
         )}
