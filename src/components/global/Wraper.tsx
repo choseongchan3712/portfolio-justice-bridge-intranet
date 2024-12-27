@@ -10,7 +10,9 @@ const Container = styled.div`
   position: relative;
   z-index: 0;
   overflow: hidden;
-  padding: calc(var(--header-height) + var(--wraper-padding)) var(--wraper-padding) var(--wraper-padding) calc(var(--nav-width) + var(--wraper-padding));
+  padding: calc(var(--header-height) + var(--wraper-padding))
+    var(--wraper-padding) var(--wraper-padding)
+    calc(var(--nav-width) + var(--wraper-padding));
   background-color: var(--gray-1);
 `;
 
@@ -18,11 +20,14 @@ interface WraperType {
   children: React.ReactNode;
 }
 
-const Wraper = ({children}:WraperType) => {
+const Wraper = ({ children }: WraperType) => {
   const { themeMode } = useContext(ThemeContext)!;
-  return <Container>
-    {themeMode === "edge" ? <Three /> : <></>}
-    {children}</Container>;
+  return (
+    <Container>
+      {themeMode === "edge" ? <Three /> : <></>}
+      {children}
+    </Container>
+  );
 };
 
 export default Wraper;

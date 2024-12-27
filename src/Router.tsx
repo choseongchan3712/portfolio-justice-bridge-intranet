@@ -3,7 +3,7 @@ import Main from "./pages/Main";
 import { GoLoginProvider } from "./components/login/components/provider/GoLoginProvier";
 import { GoPasswordProvider } from "./components/login/components/provider/GoPasswordProvider";
 import GoSignUpProvider from "./components/login/components/provider/GoSignUpProvider";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Login from "./pages/Login";
 import Header from "./components/global/Header";
 import Chat from "./pages/Chat";
@@ -23,8 +23,12 @@ import CompWrap from "./components/notice/CompWrap";
 import GroupWrap from "./components/notice/GroupWrap";
 import TeamWrap from "./components/notice/TeamWrap";
 import { NoticeProvider } from "./components/notice/provider/NoticeProvider";
+import AnimatedCursor from "react-animated-cursor";
+import { ThemeContext } from "./components/global/context/ThemeContext";
 
 const Router = () => {
+  const { themeMode } = useContext(ThemeContext)!;
+  const [mouseEdge, setMouseEdge] = useState<boolean>(false);
   const [isLogin, setIsLogin] = useState<boolean>(() => {
     const login = localStorage.getItem("login");
     return login === "true";
@@ -42,7 +46,16 @@ const Router = () => {
       setIsLogin(false);
     }
   }, []);
-  console.log(isLogin);
+
+  useEffect(() => {
+    if (themeMode === "edge") {
+      setMouseEdge(true);
+    } else {
+      setMouseEdge(false);
+    }
+  }, [themeMode]);
+
+  console.log(mouseEdge);
 
   return (
     <HashRouter>
@@ -55,6 +68,24 @@ const Router = () => {
                   <LawProvider>
                     <ChattingProvider>
                       <NoticeProvider>
+                        {mouseEdge ? (
+                          <AnimatedCursor
+                            innerSize={8} // 안쪽 크기
+                            outerSize={35} // 바깥쪽 크기
+                            innerScale={1} // 안쪽 커서 크기 비율
+                            outerScale={1.7} // 바깥쪽 커서 크기 비율
+                            outerAlpha={0} // 외부 커서의 투명도
+                            innerStyle={{
+                              borderRadius: "50%", // 마우스를 동그랗게
+                              backgroundColor: "#325935", // 커서 색상
+                            }}
+                            outerStyle={{
+                              borderRadius: "50%",
+                              backgroundColor: "#DAD9DA",
+                              mixBlendMode: "difference",
+                            }}
+                          />
+                        ) : null}
                         {isLogin ? <Header /> : null}
                         {isLogin ? <SubEffectButton /> : null}
                         <PopUpContents />

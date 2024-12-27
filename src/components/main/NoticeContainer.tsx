@@ -4,8 +4,9 @@ import styled from "styled-components";
 import { NoticeContainerType } from "../../type";
 
 const Container = styled.div`
+  position: relative;
   padding: 0 15px;
-  background-color: var(--gary-1);
+  background-color: var(--gray-1);
   border: 1px solid var(--gray-2);
   border-radius: 20px;
   display: flex;
@@ -71,7 +72,7 @@ const Container = styled.div`
       align-items: center;
       padding-left: 5px;
       font-size: var(--medium-size);
-      .wath {
+      .watch {
         color: var(--sub-color-b);
       }
       .all {
@@ -84,9 +85,13 @@ const Container = styled.div`
   }
 `;
 
-const NoticeContainer = ( {barColor, title, areaName}:NoticeContainerType) => {
+const NoticeContainer = ({
+  barColor,
+  title,
+  areaName,
+}: NoticeContainerType) => {
   return (
-    <Container style={{gridArea: areaName}}>
+    <Container style={{ gridArea: areaName }}>
       <div className="title_wrap">
         <div className="title">{title}</div>
       </div>
@@ -96,7 +101,7 @@ const NoticeContainer = ( {barColor, title, areaName}:NoticeContainerType) => {
           <div className="percent">50%</div>
         </div>
         <div className="bar">
-          <div className="per_bar" style={{backgroundColor:barColor,}}></div>
+          <div className="per_bar" style={{ backgroundColor: barColor }}></div>
         </div>
       </div>
       <div className="view_wrap">

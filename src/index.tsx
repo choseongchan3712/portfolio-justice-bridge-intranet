@@ -4,13 +4,14 @@ import Router from "./Router";
 import { GlobalStyled } from "./GlobalStyled";
 import { ThemeProvider } from "./components/global/provider/ThemeProvider";
 
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
+    <GlobalStyled />
     <ThemeProvider>
-      <GlobalStyled />
       <Router />
     </ThemeProvider>
   </React.StrictMode>

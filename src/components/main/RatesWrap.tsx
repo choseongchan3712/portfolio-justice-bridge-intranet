@@ -14,7 +14,7 @@ import { stockRates } from "../../api/stockAPI";
 
 const Container = styled.div`
   position: relative;
-  background-color: var(--gary-1);
+  background-color: var(--gray-1);
   border: 1px solid var(--gray-2);
   border-radius: 20px;
   display: flex;

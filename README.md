@@ -21,4 +21,5 @@
 - [X] npm i react-hook-form
 - [X] npm install three @react-three/fiber @react-three/drei
 - [X] npm install --save-dev @types/three
+- [X] npm install react-animated-cursor
 

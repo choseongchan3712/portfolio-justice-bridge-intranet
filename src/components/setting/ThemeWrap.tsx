@@ -33,8 +33,11 @@ const ThemeWrap = ({ color, text, bgColor }: colorType) => {
       localStorage.setItem("theme", "dark");
     } else if (conRef.current?.textContent === "엣지") {
       localStorage.setItem("theme", "edge");
+    } else if (conRef.current?.textContent === "몽환") {
+      localStorage.setItem("theme", "dreamy");
     }
     setModify(true);
+    window.location.reload();
   };
   useEffect(() => {
     setThemeMode(localStorage.getItem("theme")!);

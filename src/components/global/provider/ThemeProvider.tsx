@@ -18,6 +18,9 @@ export const ThemeProvider = ({ children }: ThemeProviderType) => {
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", `${themeMode}`);
+    document.documentElement.querySelectorAll("div").forEach((div) => {
+      div.setAttribute("data-theme", `${themeMode}`);
+    });
   }, [themeMode]);
 
   return (
