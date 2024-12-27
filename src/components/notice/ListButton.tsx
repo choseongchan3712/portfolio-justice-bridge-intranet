@@ -41,10 +41,10 @@ const ListButton = ({ title, link }: ListButtonType) => {
         linkElement.style.color = "var(--main-color)";
       } else if (linkElement?.textContent === "부서 게시물") {
         linkElement.style.backgroundColor = "unset";
-        linkElement.style.color = "unset";
+        linkElement.style.color = "var(--gray-3)";
       } else if (linkElement?.textContent === "팀 게시물") {
         linkElement.style.backgroundColor = "unset";
-        linkElement.style.color = "unset";
+        linkElement.style.color = "var(--gray-3)";
       }
     } else if (locationName === "/notice/group") {
       if (linkElement?.textContent === "부서 게시물") {
@@ -52,10 +52,10 @@ const ListButton = ({ title, link }: ListButtonType) => {
         linkElement.style.color = "var(--main-color)";
       } else if (linkElement?.textContent === "회사 게시물") {
         linkElement.style.backgroundColor = "unset";
-        linkElement.style.color = "unset";
+        linkElement.style.color = "var(--gray-3)";
       } else if (linkElement?.textContent === "팀 게시물") {
         linkElement.style.backgroundColor = "unset";
-        linkElement.style.color = "unset";
+        linkElement.style.color = "var(--gray-3)";
       }
     } else if (locationName === "/notice/team") {
       if (linkElement?.textContent === "팀 게시물") {
@@ -63,10 +63,10 @@ const ListButton = ({ title, link }: ListButtonType) => {
         linkElement.style.color = "var(--main-color)";
       } else if (linkElement?.textContent === "회사 게시물") {
         linkElement.style.backgroundColor = "unset";
-        linkElement.style.color = "unset";
+        linkElement.style.color = "var(--gray-3)";
       } else if (linkElement?.textContent === "부서 게시물") {
         linkElement.style.backgroundColor = "unset";
-        linkElement.style.color = "unset";
+        linkElement.style.color = "var(--gray-3)";
       }
     }
   }, [locationName]);

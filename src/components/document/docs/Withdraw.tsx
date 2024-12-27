@@ -24,6 +24,7 @@ const InputText = styled.input`
   border: 1px solid var(--gray-3);
   border-radius: 10px;
   margin-bottom: 20px;
+  color: var(--sub-color-b);
   &:focus {
     border:  1px solid var(--sub-color-b);
   }

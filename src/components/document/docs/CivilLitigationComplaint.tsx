@@ -29,6 +29,7 @@ const InputText = styled.input`
   font-size: var(--normal-size);
   border-radius: 10px;
   font-weight: 500;
+  color: var(--sub-color-b);
   &:focus {
     border: 1px solid var(--sub-color-b);
   }
@@ -41,6 +42,7 @@ const SelectWrap = styled.div`
   justify-content: space-between;
   margin-bottom: 20px;
   select {
+    color: var(--sub-color-b);
     all: unset;
     width: 45%;
     padding: 10px;
@@ -83,6 +85,7 @@ const Textarea = styled.textarea`
   word-wrap: break-word;
   overflow-x: hidden;
   padding: 10px;
+  color: var(--sub-color-b);
   &:focus {
     border: 1px solid var(--sub-color-b);
   }

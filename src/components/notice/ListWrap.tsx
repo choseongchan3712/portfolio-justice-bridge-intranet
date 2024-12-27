@@ -18,6 +18,7 @@ const Container = styled.div`
     font-size: var(--title-size);
     font-weight: 900;
     border-bottom: 1px solid var(--gray-2);
+    color: var(--sub-color-b);
   }
   .contents_wrap {
     width: 100%;

@@ -60,16 +60,19 @@ const Container = styled.div`
     padding: 0 0 10px 15px;
     font-size: var(--normal-size);
     font-weight: 700;
+    color: var(--sub-color-b);
   }
   .paragraph {
     padding: 0 0 10px 15px;
     font-size: var(--normal-size);
     font-weight: 700;
+    color: var(--sub-color-b);
   }
   .number {
     padding: 0 0 10px 15px;
     font-size: var(--normal-size);
     font-weight: 700;
+    color: var(--sub-color-b);
   }
 `;
 

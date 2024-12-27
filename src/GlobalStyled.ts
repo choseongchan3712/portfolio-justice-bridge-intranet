@@ -12,7 +12,6 @@ ${reset};
 
 a {
   text-decoration: none;
-  color: black;
   display: block;
 }
 
@@ -22,6 +21,7 @@ img {
 }
 
 :root {
+  &[data-theme='normal']{
   --main-color: #D84841;
   --point-color-y: #E2B35D;
   --point-color-br: #531310;
@@ -50,6 +50,38 @@ img {
   --back-y: #FFFBEA;
   --back-gr: #F0FDF4;
   --back-r: #FBEDEC;
+}
+
+  &[data-theme='dark']{
+  --main-color: #A0A0A0;
+  --point-color-y: #A0A0A0;
+  --point-color-br: #A0A0A0;
+  --sub-color-r: #A0A0A0;
+  --sub-color-bl: #A0A0A0;
+  --sub-color-b: #FFFFFF;
+  --sub-color-wh: #121212;
+  --sub-color-gr: #A0A0A0;
+  --sub-color-gr-light: #A0A0A0;
+  --sub-color-y: #A0A0A0;
+
+  --snow-light: #FFFFFF;
+  --snow-dark: #A0A0A0;
+  --sunny-light: #FFFFFF;
+  --sunny-dark: #A0A0A0;
+  --cloud-light: #FFFFFF;
+  --cloud-dark: #A0A0A0;
+  --rain-light: #FFFFFF;
+  --rain-dark: #A0A0A0;
+
+  --gray-1: #333333;
+  --gray-2: #424242;
+  --gray-3: #7A7A7A;
+  --op-gray-2: rgba(66, 66, 66,0.4);
+
+  --back-y: #333333;
+  --back-gr: #333333;
+  --back-r: #333333;
+}
 
   --big-size: 60px;
   --weather-icon: 45px;

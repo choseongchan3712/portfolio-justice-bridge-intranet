@@ -55,6 +55,7 @@ const Container = styled.div`
     font-size: var(--big-size);
     font-weight: 900;
     margin-bottom: 50px;
+    color: var(--sub-color-b);
   }
 `;
 

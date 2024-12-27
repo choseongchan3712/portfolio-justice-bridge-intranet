@@ -35,6 +35,7 @@ const Container = styled.div`
         display: flex;
         align-items: center;
         border-bottom: 1px solid var(--gray-2);
+        color: var(--sub-color-b);
         &:focus {
           border-bottom: 1px solid var(--main-color);
         }
@@ -57,6 +58,7 @@ const Container = styled.div`
         width: 50%;
         border-radius: 10px;
         padding: 10px;
+        color: var(--sub-color-b);
         &:focus {
           border: 1px solid var(--sub-color-b);
         }
@@ -80,6 +82,7 @@ const Container = styled.div`
         padding: 0 10px;
         border: 1px solid var(--gray-2);
         border-radius: 10px;
+        color: var(--sub-color-b);
         &:focus {
           border: 1px solid var(--sub-color-b);
         }

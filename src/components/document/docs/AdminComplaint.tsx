@@ -75,6 +75,7 @@ const Textarea = styled.textarea`
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 20px;
+  color: var(--sub-color-b);
   white-space: pre-wrap; /* 줄바꿈 허용 */
   word-wrap: break-word; /* 긴 단어 줄바꿈 */
   overflow-x: hidden; /* 가로 스크롤 제거 */

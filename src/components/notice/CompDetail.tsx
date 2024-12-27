@@ -22,6 +22,7 @@ const Container = styled.div`
     display: flex;
     justify-content: flex-start;
     font-size: var(--normal-size);
+    color: var(--sub-color-b);
   }
   .profile {
     width: 80%;
@@ -33,6 +34,7 @@ const Container = styled.div`
       font-size: var(--noraml-size);
       padding-right: 10px;
       font-weight: 900;
+      color: var(--sub-color-b);
     }
     .position {
       font-size: var(--medium-size);
@@ -45,6 +47,7 @@ const Container = styled.div`
     display: flex;
     justify-content: flex-end;
     font-size: var(--normal-size);
+    color: var(--sub-color-b);
   }
 `;
 

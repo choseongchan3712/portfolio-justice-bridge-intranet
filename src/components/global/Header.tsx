@@ -34,9 +34,11 @@ const Nav = styled.div`
     justify-content: center;
     align-items: center;
     border-bottom: 1px solid var(--gray-2);
-    color: var(--color-sub-b);
-    font-size: var(--heading-size);
-    font-weight: 900;
+    a {
+      color: var(--sub-color-b);
+      font-size: var(--heading-size);
+      font-weight: 900;
+    }
   }
   .menu_wrap {
     padding-top: 90px;

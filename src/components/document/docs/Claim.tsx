@@ -27,6 +27,7 @@ const InputText = styled.input`
   width: 50%;
   border: 1px solid var(--gray-3);
   border-radius: 10px;
+  color: var(--sub-color-b);
   &:focus {
     border: 1px solid var(--sub-color-b);
   }
@@ -39,6 +40,7 @@ const SelectWrap = styled.div`
   justify-content: space-between;
   margin-bottom: 20px;
   select {
+    color: var(--sub-color-b);
     all: unset;
     width: 45%;
     padding: 10px;
@@ -75,6 +77,7 @@ const Textarea = styled.textarea`
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 20px;
+  color: var(--sub-color-b);
   white-space: pre-wrap; /* 줄바꿈 허용 */
   word-wrap: break-word; /* 긴 단어 줄바꿈 */
   overflow-x: hidden; /* 가로 스크롤 제거 */

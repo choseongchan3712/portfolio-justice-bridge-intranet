@@ -24,19 +24,16 @@ const SubmitInput = styled.input`
   border: 1px solid var(--gray-3);
   border-radius: 10px;
   margin-bottom: 20px;
+  color: var(--sub-color-b);
   &:focus {
-    border:  qpx solid var(--sub-color-b);
+    border: 1px solid var(--sub-color-b);
   }
 `;
 
 const IOU = (): JSX.Element => {
   const [data, setData] = useState<any>(null);
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-  } = useForm<any>();
+  const { register, handleSubmit, reset } = useForm<any>();
 
   const onSubmit = (data: any) => {
     setData({

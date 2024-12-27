@@ -17,6 +17,7 @@ const Container = styled.div`
   justify-content: space-between;
   padding: 0 55px 0 45px;
   .title {
+    color: var(--sub-color-b);
     font-size: var(--heading-size);
     font-weight: 900;
   }
@@ -32,6 +33,7 @@ const Container = styled.div`
         width: 370px;
         height: 40px;
         border: 1px solid var(--gray-2);
+        color: var(--sub-color-b);
         border-radius: 15px;
         display: flex;
         align-items: center;
