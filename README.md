@@ -22,4 +22,7 @@
 - [X] npm install three @react-three/fiber @react-three/drei
 - [X] npm install --save-dev @types/three
 - [X] npm install react-animated-cursor
+- [X] npm install @react-three/drei
+- [X] npm install react-tsparticles tsparticles
+
 

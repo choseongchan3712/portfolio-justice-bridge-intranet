@@ -24,7 +24,7 @@ const Wraper = ({ children }: WraperType) => {
   const { themeMode } = useContext(ThemeContext)!;
   return (
     <Container>
-      {themeMode === "edge" ? <Three /> : <></>}
+      {themeMode === "edge" || "dreamy" ? <Three /> : null}
       {children}
     </Container>
   );

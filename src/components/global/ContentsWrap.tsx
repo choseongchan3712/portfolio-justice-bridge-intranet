@@ -42,6 +42,8 @@ const ContentsWrap = ({ className, title, children }: ContentsWrapType) => {
         backgroundColor:
           themeMode === "edge"
             ? "rgba(237, 253, 232, 0.7)"
+            : themeMode === "dreamy"
+            ? "rgba(241, 229, 245, 0.7)"
             : "var(--sub-color-wh)",
         backdropFilter: themeMode === "edge" ? "blur(5px)" : "unset",
       }}

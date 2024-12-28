@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import Router from "./Router";
 import { GlobalStyled } from "./GlobalStyled";
 import { ThemeProvider } from "./components/global/provider/ThemeProvider";
-
+import AnimatedCursor from "react-animated-cursor";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

@@ -25,10 +25,12 @@ import TeamWrap from "./components/notice/TeamWrap";
 import { NoticeProvider } from "./components/notice/provider/NoticeProvider";
 import AnimatedCursor from "react-animated-cursor";
 import { ThemeContext } from "./components/global/context/ThemeContext";
+import ParticleEffect from "./components/global/ParticleEffect";
 
 const Router = () => {
   const { themeMode } = useContext(ThemeContext)!;
   const [mouseEdge, setMouseEdge] = useState<boolean>(false);
+  const [mousedreamy, setMousedreamy] = useState<boolean>(false);
   const [isLogin, setIsLogin] = useState<boolean>(() => {
     const login = localStorage.getItem("login");
     return login === "true";
@@ -53,9 +55,14 @@ const Router = () => {
     } else {
       setMouseEdge(false);
     }
+    if (themeMode === "dreamy") {
+      setMousedreamy(true);
+    } else {
+      setMousedreamy(false);
+    }
   }, [themeMode]);
 
-  console.log(mouseEdge);
+  console.log(mousedreamy);
 
   return (
     <HashRouter>
@@ -86,6 +93,7 @@ const Router = () => {
                             }}
                           />
                         ) : null}
+                        {mousedreamy ? <ParticleEffect /> : null}
                         {isLogin ? <Header /> : null}
                         {isLogin ? <SubEffectButton /> : null}
                         <PopUpContents />
