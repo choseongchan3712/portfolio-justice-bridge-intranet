@@ -14,6 +14,7 @@ const Container = styled.div`
   border-radius: 15px;
   cursor: pointer;
   transition: 0.25s ease-in-out;
+
   a {
     color: var(--gray-3);
     font-size: var(--title-size);
@@ -22,15 +23,63 @@ const Container = styled.div`
     display: flex;
     align-items: center;
   }
+
   svg {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     left: 30px;
   }
+
   &:hover {
     background-color: var(--gray-1);
     transform: scale(1.05);
+  }
+
+  @media screen and (max-width: 992px) {
+    width: 16.666%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+
+    a {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      padding: 0;
+      width: 100%;
+      font-size: var(--medium-size);
+      white-space: nowrap;
+    }
+
+    svg {
+      position: static;
+      transform: none;
+      font-size: var(--title-size);
+    }
+
+    &:hover {
+      transform: none;
+      background-color: transparent;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    a {
+      font-size: var(--small-size);
+    }
+
+    svg {
+      font-size: var(--normal-size);
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    svg {
+      font-size: var(--medium-size);
+    }
   }
 `;
 
@@ -104,10 +153,11 @@ const NavButton = ({ title, children, link }: NavButtonType) => {
   return (
     <Container ref={buttonRef}>
       <Link to={link}>
-        <div className="title">{title}</div>
         {children}
+        {title}
       </Link>
     </Container>
   );
 };
+
 export default NavButton;

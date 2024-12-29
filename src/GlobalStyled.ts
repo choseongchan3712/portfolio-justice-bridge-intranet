@@ -162,6 +162,7 @@ div {
 --nav-width: 300px;
 --header-height: 70px;
 --wraper-padding: 20px;
+
 @media screen and (max-width: 1400px){
   --big-size: 60px;
   --weather-icon: 45px;
@@ -176,6 +177,7 @@ div {
   --header-height: 70px;
   --wraper-padding: 20px;
 }
+
 @media screen and (max-width: 1200px){
   --big-size: 60px;
   --weather-icon: 45px;
@@ -191,6 +193,50 @@ div {
   --wraper-padding: 20px;
 }
 
+@media screen and (max-width: 992px){
+  --big-size: 50px;
+  --weather-icon: 40px;
+  --time-size: 35px;
+  --heading-size: 22px;
+  --top-size: 20px;
+  --title-size: 16px;
+  --normal-size: 14px;
+  --medium-size: 12px;
+  --small-size: 10px;
+  --nav-width: 0px;
+  --header-height: 50px;
+  --wraper-padding: 15px;
+}
+
+@media screen and (max-width: 768px){
+  --big-size: 45px;
+  --weather-icon: 35px;
+  --time-size: 30px;
+  --heading-size: 20px;
+  --top-size: 18px;
+  --title-size: 16px;
+  --normal-size: 14px;
+  --medium-size: 12px;
+  --small-size: 9px;
+  --nav-width: 0px;
+  --header-height: 50px;
+  --wraper-padding: 15px;
+}
+
+@media screen and (max-width: 576px){
+  --big-size: 40px;
+  --weather-icon: 30px;
+  --time-size: 28px;
+  --heading-size: 18px;
+  --top-size: 16px;
+  --title-size: 14px;
+  --normal-size: 12px;
+  --medium-size: 11px;
+  --small-size: 9px;
+  --nav-width: 0px;
+  --header-height: 45px;
+  --wraper-padding: 10px;
+}
 
 }
 

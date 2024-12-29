@@ -16,17 +16,23 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0 55px 0 45px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: all 0.3s ease-in-out;
+
   .title {
     color: var(--sub-color-b);
     font-size: var(--heading-size);
     font-weight: 900;
+    white-space: nowrap;
   }
+
   .left_wrap {
     display: flex;
     align-items: center;
+    gap: 40px;
+
     form {
       position: relative;
-      margin-right: 40px;
       input {
         all: unset;
         box-sizing: border-box;
@@ -34,10 +40,8 @@ const Container = styled.div`
         height: 40px;
         border: 1px solid var(--gray-2);
         color: var(--sub-color-b);
-        border-radius: 15px;
-        display: flex;
-        align-items: center;
-        padding-left: 60px;
+        border-radius: 10px;
+        padding: 0 20px 0 50px;
         font-size: var(--title-size);
         transition: 0.25s ease-in-out;
         &::placeholder {
@@ -53,65 +57,173 @@ const Container = styled.div`
         top: 50%;
         transform: translateY(-50%);
         font-size: var(--title-size);
-        left: 23px;
+        left: 20px;
       }
     }
-    .notice_wrap {
-      height: 100%;
-      position: relative;
+
+    .right_menu {
       display: flex;
       align-items: center;
-      margin-right: 45px;
-      svg {
-        color: var(--sub-color-b);
-        font-size: var(--title-size);
-      }
-      .notice_num {
-        position: absolute;
-        padding: 3px 5px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: var(--sub-color-r);
-        color: var(--sub-color-wh);
-        font-size: var(--medium-size);
-        border-radius: 10px;
-        font-weight: 900;
-        top: -14px;
-        left: 7px;
-      }
-    }
-    .profile_wrap {
-      width: 190px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      a {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        .profile_img {
-          width: 45px;
-          height: 45px;
-          border-radius: 45px;
-          background-color: gray;
-          margin-right: 10px;
+      gap: 30px;
+
+      .notice_wrap {
+        position: relative;
+        svg {
+          color: var(--sub-color-b);
+          font-size: var(--title-size);
         }
-        .profile_info {
-          height: 45px;
+        .notice_num {
+          position: absolute;
+          top: -8px;
+          right: -8px;
+          background-color: var(--sub-color-r);
+          color: var(--sub-color-wh);
+          font-size: var(--small-size);
+          font-weight: 900;
+          padding: 2px 6px;
+          border-radius: 10px;
+          min-width: 20px;
+          height: 20px;
           display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          align-items: flex-start;
-          .user_name {
-            font-size: var(--title-size);
-            color: var(--sub-color-b);
-            font-weight: 900;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      .profile_wrap {
+        a {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          
+          .profile_img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: gray;
           }
-          .user_position {
-            font-size: var(--normal-size);
-            color: var(--gray-3);
+          
+          .profile_info {
+            .user_name {
+              color: var(--sub-color-b);
+              font-size: var(--title-size);
+              font-weight: 900;
+              margin-bottom: 2px;
+            }
+            .user_position {
+              color: var(--gray-3);
+              font-size: var(--normal-size);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1400px) {
+    padding: 0 40px;
+    .left_wrap {
+      gap: 30px;
+      form input {
+        width: 300px;
+      }
+      .right_menu {
+        gap: 25px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    padding: 0 30px;
+    .left_wrap {
+      gap: 25px;
+      form input {
+        width: 250px;
+      }
+      .right_menu {
+        gap: 20px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 992px) {
+    width: 100%;
+    padding: 0 20px 0 180px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .title {
+      font-size: var(--title-size);
+    }
+
+    .left_wrap {
+      gap: 20px;
+
+      form {
+        display: none;
+      }
+
+      .right_menu {
+        gap: 20px;
+        
+        .profile_wrap {
+          a {
+            .profile_img {
+              width: 35px;
+              height: 35px;
+            }
+            .profile_info {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 0 15px 0 150px;
+    height: 50px;
+
+    .title {
+      font-size: var(--normal-size);
+    }
+
+    .left_wrap {
+      gap: 15px;
+      .right_menu {
+        gap: 15px;
+        .profile_wrap {
+          a {
+            .profile_img {
+              width: 32px;
+              height: 32px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    padding: 0 12px 0 120px;
+    height: 45px;
+
+    .title {
+      font-size: var(--medium-size);
+    }
+
+    .left_wrap {
+      gap: 12px;
+      .right_menu {
+        gap: 12px;
+        .profile_wrap {
+          a {
+            .profile_img {
+              width: 30px;
+              height: 30px;
+            }
           }
         }
       }
@@ -151,21 +263,23 @@ const HeaderWrap = () => {
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </form>
 
-        <div className="notice_wrap">
-          <Link to={"#"}>
-            <FontAwesomeIcon icon={faBell} />
-            <div className="notice_num">29</div>
-          </Link>
-        </div>
+        <div className="right_menu">
+          <div className="notice_wrap">
+            <Link to={"#"}>
+              <FontAwesomeIcon icon={faBell} />
+              <div className="notice_num">29</div>
+            </Link>
+          </div>
 
-        <div className="profile_wrap">
-          <Link to={"#"}>
-            <div className="profile_img"></div>
-            <div className="profile_info">
-              <div className="user_name">수달</div>
-              <div className="user_position">변호사</div>
-            </div>
-          </Link>
+          <div className="profile_wrap">
+            <Link to={"#"}>
+              <div className="profile_img"></div>
+              <div className="profile_info">
+                <div className="user_name">수달</div>
+                <div className="user_position">변호사</div>
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
     </Container>

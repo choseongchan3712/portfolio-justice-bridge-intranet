@@ -13,14 +13,14 @@ const Container = styled.div`
   .title_wrap {
     width: 100%;
     padding: 15px 0;
-    display: flex;
     align-items: center;
     justify-content: space-between;
+    display: flex;
     border-bottom: 1px solid var(--gray-1);
     .title {
+      color: var(--sub-color-b);
       font-size: var(--title-size);
       font-weight: 900;
-      color: var(--sub-color-b);
     }
     svg {
       color: var(--gray-3);

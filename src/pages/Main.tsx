@@ -11,7 +11,7 @@ import WeatherContents from "../components/main/WeatherContents";
 const Main = () => {
   return (
     <>
-    <Title title={"메인"}/>
+      <Title title={"메인"} />
       <Wraper>
         <GridWrap
           columns="repeat(4, 1fr)"
@@ -19,7 +19,9 @@ const Main = () => {
           gap="20px"
           padding="0 0 20px 0"
           height="calc(100% - 165px)"
-          areas={`"notice notice notice weather""exchange exchange exchange todo""stock stock stock todo"`}
+          areas={`"notice notice notice weather"
+                 "exchange exchange exchange todo"
+                 "stock stock stock todo"`}
         >
           <ContentsWrap className="notice" title="공지사항">
             <GridWrap
@@ -69,7 +71,7 @@ const Main = () => {
               gap="20px"
               padding="15px 0"
               height="auto"
-              areas={`"box1 box2 box3 box4"`}
+              areas="'box1 box2 box3 box4'"
             >
               <RatesWrap areaName="box1" type="stock" />
               <RatesWrap areaName="box2" type="stock" />
@@ -77,7 +79,7 @@ const Main = () => {
               <RatesWrap areaName="box4" type="stock" />
             </GridWrap>
           </ContentsWrap>
-          <WeatherContents></WeatherContents>
+          <WeatherContents />
           <CalenderWrap>
             <Calendar />
           </CalenderWrap>

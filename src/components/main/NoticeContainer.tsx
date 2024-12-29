@@ -1,9 +1,13 @@
-import { faEye } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { NoticeContainerType } from "../../type";
 
-const Container = styled.div`
+interface ContainerProps {
+  areaName?: string;
+}
+
+const Container = styled.div<ContainerProps>`
   position: relative;
   padding: 0 15px;
   background-color: var(--gray-1);
@@ -14,6 +18,8 @@ const Container = styled.div`
   justify-content: space-between;
   transition: 0.25s ease-in-out;
   cursor: pointer;
+  grid-area: ${(props) => props.areaName};
+
   .title_wrap {
     width: 100%;
     padding: 10px 0;
@@ -26,6 +32,7 @@ const Container = styled.div`
       font-weight: 900;
     }
   }
+
   .contents_wrap {
     width: 100%;
     display: flex;
@@ -58,6 +65,7 @@ const Container = styled.div`
       }
     }
   }
+
   .view_wrap {
     width: 100%;
     padding: 10px 0;
@@ -80,6 +88,7 @@ const Container = styled.div`
       }
     }
   }
+
   &:hover {
     box-shadow: 5px 5px 10px var(--gray-1);
   }
@@ -91,7 +100,7 @@ const NoticeContainer = ({
   areaName,
 }: NoticeContainerType) => {
   return (
-    <Container style={{ gridArea: areaName }}>
+    <Container areaName={areaName}>
       <div className="title_wrap">
         <div className="title">{title}</div>
       </div>
