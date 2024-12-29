@@ -58,6 +58,32 @@ const LawContainer = ({ color, children, areaName }: LawContainerType) => {
   const clickHandler = () => {
     setIsOpen(true);
 
+    // 모든 state를 false로 리셋
+    setIsPublic1Open(false);
+    setIsPublic2Open(false);
+    setIsPublic3Open(false);
+    setIsPublic4Open(false);
+    setIsCriminal1Open(false);
+    setIsCriminal2Open(false);
+    setIsCriminal3Open(false);
+    setIsCriminal4Open(false);
+    setIsCivil1Open(false);
+    setIsCivil2Open(false);
+    setIsCivil3Open(false);
+    setIsCivil4Open(false);
+    setIsCommercial1Open(false);
+    setIsCommercial2Open(false);
+    setIsCommercial3Open(false);
+    setIsCommercial4Open(false);
+    setIsAdministrative1Open(false);
+    setIsAdministrative2Open(false);
+    setIsAdministrative3Open(false);
+    setIsAdministrative4Open(false);
+    setIsProcedural1Open(false);
+    setIsProcedural2Open(false);
+    setIsProcedural3Open(false);
+    setIsProcedural4Open(false);
+
     const whatLaw: string = lawRef?.current?.querySelector("div")?.textContent!;
     if (whatLaw === "헌법") {
       setIsPublic1Open(true);
@@ -103,9 +129,9 @@ const LawContainer = ({ color, children, areaName }: LawContainerType) => {
       setIsProcedural1Open(true);
     } else if (whatLaw === "형사소송법") {
       setIsProcedural2Open(true);
-    } else if (whatLaw === "가사소송법") {
-      setIsProcedural3Open(true);
     } else if (whatLaw === "행정소송법") {
+      setIsProcedural3Open(true);
+    } else if (whatLaw === "행정심판법") {
       setIsProcedural4Open(true);
     }
   };
