@@ -117,6 +117,15 @@ const Nav = styled.div`
 
   @media screen and (max-width: 768px) {
     height: 55px;
+
+    .menu_wrap {
+      .page_menu_wrap {
+        a[href="/chat"],
+        a[href="/notice"] {
+          display: none;
+        }
+      }
+    }
   }
 
   @media screen and (max-width: 576px) {

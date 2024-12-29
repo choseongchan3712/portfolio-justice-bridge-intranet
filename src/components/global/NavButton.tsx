@@ -67,6 +67,11 @@ const Container = styled.div`
   }
 
   @media screen and (max-width: 768px) {
+    &[data-link="/chat"],
+    &[data-link="/notice"] {
+      display: none;
+    }
+    
     a {
       font-size: var(--small-size);
     }
@@ -151,7 +156,7 @@ const NavButton = ({ title, children, link }: NavButtonType) => {
   }, [locationName]);
 
   return (
-    <Container ref={buttonRef}>
+    <Container ref={buttonRef} data-link={link}>
       <Link to={link}>
         {children}
         {title}

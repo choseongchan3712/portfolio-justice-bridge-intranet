@@ -31,6 +31,22 @@ const Container = styled.div`
     align-items: center;
     gap: 40px;
 
+    .menu_wrap {
+      display: flex;
+      gap: 20px;
+      
+      a {
+        color: var(--sub-color-b);
+        font-size: var(--normal-size);
+        font-weight: 700;
+        transition: 0.25s ease-in-out;
+        
+        &:hover {
+          color: var(--point-color);
+        }
+      }
+    }
+
     form {
       position: relative;
       input {
@@ -192,8 +208,22 @@ const Container = styled.div`
 
     .left_wrap {
       gap: 15px;
+      
+      .menu_wrap {
+        display: none;
+      }
+      
+      form {
+        input {
+          width: 200px;
+        }
+      }
+
       .right_menu {
         gap: 15px;
+        .notice_wrap {
+          display: none;
+        }
         .profile_wrap {
           a {
             .profile_img {
@@ -258,6 +288,10 @@ const HeaderWrap = () => {
       <div className="title">{title}</div>
 
       <div className="left_wrap">
+        <div className="menu_wrap">
+          <Link to={"/notice"}>게시판</Link>
+          <Link to={"/chat"}>채팅</Link>
+        </div>
         <form>
           <input type="text" placeholder="검색하기..." />
           <FontAwesomeIcon icon={faMagnifyingGlass} />
