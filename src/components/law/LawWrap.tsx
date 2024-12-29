@@ -89,7 +89,7 @@ const LawWrap = ({ id }: IdProps): JSX.Element => {
       try {
         const response = await getLawId(id);
         console.log('API response:', response);
-        setlaw(response.data.법령);
+        setlaw(response.data);
       } catch (error) {
         console.log(error);
       }
