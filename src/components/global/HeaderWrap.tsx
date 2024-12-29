@@ -289,8 +289,6 @@ const HeaderWrap = () => {
 
       <div className="left_wrap">
         <div className="menu_wrap">
-          <Link to={"/notice"}>게시판</Link>
-          <Link to={"/chat"}>채팅</Link>
         </div>
         <form>
           <input type="text" placeholder="검색하기..." />
