@@ -25,6 +25,7 @@ import { NoticeProvider } from "./components/notice/provider/NoticeProvider";
 import AnimatedCursor from "react-animated-cursor";
 import { ThemeContext } from "./components/global/context/ThemeContext";
 import ParticleEffect from "./components/global/ParticleEffect";
+import PageNotFound from "./pages/PageNotFound";
 
 const Router = () => {
   const { themeMode } = useContext(ThemeContext)!;
@@ -155,6 +156,16 @@ const Router = () => {
                             path="/setting"
                             element={
                               isLogin ? <Setting /> : <Navigate to={"/login"} />
+                            }
+                          />
+                          <Route
+                            path="*"
+                            element={
+                              isLogin ? (
+                                <PageNotFound />
+                              ) : (
+                                <Navigate to={"/login"} />
+                              )
                             }
                           />
                         </Routes>
