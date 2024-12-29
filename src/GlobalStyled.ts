@@ -150,6 +150,19 @@ div {
   --back-r: #DEC9F2;
 }
 
+--big-size: 60px;
+--weather-icon: 45px;
+--time-size: 40px;
+--heading-size: 32px;
+--top-size: 24px;
+--title-size: 20px;
+--normal-size: 16px;
+--medium-size: 14px;
+--small-size: 10px;
+--nav-width: 300px;
+--header-height: 70px;
+--wraper-padding: 20px;
+@media screen and (max-width: 1400px){
   --big-size: 60px;
   --weather-icon: 45px;
   --time-size: 40px;
@@ -159,9 +172,26 @@ div {
   --normal-size: 16px;
   --medium-size: 14px;
   --small-size: 10px;
-  --nav-width: 300px;
+  --nav-width: 220px;
   --header-height: 70px;
   --wraper-padding: 20px;
+}
+@media screen and (max-width: 1200px){
+  --big-size: 60px;
+  --weather-icon: 45px;
+  --time-size: 40px;
+  --heading-size: 25px;
+  --top-size: 22px;
+  --title-size: 18px;
+  --normal-size: 16px;
+  --medium-size: 14px;
+  --small-size: 10px;
+  --nav-width: 200px;
+  --header-height: 50px;
+  --wraper-padding: 20px;
+}
+
+
 }
 
 `;
