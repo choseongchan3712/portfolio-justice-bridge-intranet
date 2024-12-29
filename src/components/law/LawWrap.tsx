@@ -87,6 +87,14 @@ const LawWrap = ({ id }: IdProps): JSX.Element => {
     (async () => {
       try {
         const response = await getLawId(id);
+        console.log('API 응답 구조:', {
+          전체: response.data,
+          법령: response.data.법령,
+          기본정보: response.data.법령?.기본정보,
+          법령명: response.data.법령?.기본정보?.법령명_한글,
+          조문: response.data.법령?.조문,
+          조문단위: response.data.법령?.조문?.조문단위
+        });
         setlaw(response.data.법령);
       } catch (error) {
         console.log(error);
