@@ -2,6 +2,8 @@
 import ContentsWrap from "../components/global/ContentsWrap";
 import GridWrap from "../components/global/GridWrap";
 import Wraper from "../components/global/Wraper";
+import Calendar from "../components/main/Calendar";
+import CalenderWrap from "../components/main/CalenderWrap";
 import NoticeContainer from "../components/main/NoticeContainer";
 import RatesWrap from "../components/main/RatesWrap";
 import WeatherContents from "../components/main/WeatherContents";
@@ -74,9 +76,9 @@ const Main = () => {
           </GridWrap>
         </ContentsWrap>
         <WeatherContents></WeatherContents>
-        <ContentsWrap className="todo" title="12월 2024">
-          <></>
-        </ContentsWrap>
+        <CalenderWrap>
+          <Calendar />
+        </CalenderWrap>
       </GridWrap>
     </Wraper>
   );

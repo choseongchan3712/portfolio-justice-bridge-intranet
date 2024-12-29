@@ -24,5 +24,7 @@
 - [X] npm install react-animated-cursor
 - [X] npm install @react-three/drei
 - [X] npm install react-tsparticles tsparticles
+- [X] npm install @mui/material @mui/styled-engine-sc styled-components
+- [X] npm install @mui/x-date-pickers
 
 
