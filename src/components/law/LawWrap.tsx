@@ -92,7 +92,7 @@ const LawWrap = ({ id }: IdProps): JSX.Element => {
         console.log(error);
       }
     })();
-  }, []);
+  }, [id]);
 
   console.log(law);
 
