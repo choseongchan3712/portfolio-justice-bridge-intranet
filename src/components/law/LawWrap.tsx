@@ -94,6 +94,8 @@ const LawWrap = ({ id }: IdProps): JSX.Element => {
     })();
   }, []);
 
+  console.log(law);
+
   const lawName: string = law?.기본정보?.법령명_한글;
 
   const needArticle = law?.조문?.조문단위;

@@ -6,10 +6,6 @@ const PROXY_URL = process.env.NODE_ENV === 'production'
 
 const lawApi = axios.create({
   baseURL: `${PROXY_URL}/law`,
-  params: {
-    OC: "choseongchan3712",
-    type: "JSON",
-  },
 });
 
 export const getLawId = (id: string) =>
@@ -17,11 +13,6 @@ export const getLawId = (id: string) =>
 
 const searchLawApi = axios.create({
   baseURL: `${PROXY_URL}/law-search`,
-  params: {
-    OC: "choseongchan3712",
-    type: "JSON",
-    display: "100",
-  },
 });
 
 export const getLaw = (query: string) =>
@@ -33,12 +24,6 @@ export const getLaw = (query: string) =>
 
 const precedentApi = axios.create({
   baseURL: `${PROXY_URL}/precedent-search`,
-  params: {
-    OC: "choseongchan3712",
-    type: "JSON",
-    org: "400201",
-    display: "100",
-  },
 });
 
 export const getPrecedent = (page: string) =>
@@ -57,10 +42,6 @@ export const getSearchprec = (query: string) =>
 
 const searchPrecApi = axios.create({
   baseURL: `${PROXY_URL}/precedent`,
-  params: {
-    OC: "choseongchan3712",
-    type: "JSON",
-  },
 });
 
 export const getPrec = (id: string) =>
@@ -68,11 +49,6 @@ export const getPrec = (id: string) =>
 
 const interpretationApi = axios.create({
   baseURL: `${PROXY_URL}/interpretation-search`,
-  params: {
-    OC: "choseongchan3712",
-    type: "JSON",
-    display: "100",
-  },
 });
 
 export const getInter = (page: string) =>
@@ -91,15 +67,7 @@ export const getInterprec = (query: string) =>
 
 const searchInterApi = axios.create({
   baseURL: `${PROXY_URL}/interpretation`,
-  params: {
-    OC: "choseongchan3712",
-    type: "JSON",
-  },
 });
 
 export const getInterDetail = (id: string) =>
-  searchInterApi.get("", {
-    params: {
-      ID: `${id}`,
-    },
-  });
+  searchInterApi.get(`/${id}`);
