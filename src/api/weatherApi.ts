@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const weatherApi = axios.create({
-  baseURL:"http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst",
+  baseURL:"https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst",
   params: {
     serviceKey:"5gA4kTWbmz85x9VyBV47b4m03EKFEs9iJesYrFSSo8UI7fpABfxZD8hYU+z78vC98oSKPs6RGEoLXwDH0zC3FQ==",
     dataType:"JSON",
