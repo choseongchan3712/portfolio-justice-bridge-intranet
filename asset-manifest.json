@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/portfolio-justice-bridge-intranet/static/css/main.30e69060.css",
-    "main.js": "/portfolio-justice-bridge-intranet/static/js/main.8327c646.js",
+    "main.js": "/portfolio-justice-bridge-intranet/static/js/main.a27228f4.js",
     "index.html": "/portfolio-justice-bridge-intranet/index.html",
     "main.30e69060.css.map": "/portfolio-justice-bridge-intranet/static/css/main.30e69060.css.map",
-    "main.8327c646.js.map": "/portfolio-justice-bridge-intranet/static/js/main.8327c646.js.map"
+    "main.a27228f4.js.map": "/portfolio-justice-bridge-intranet/static/js/main.a27228f4.js.map"
   },
   "entrypoints": [
     "static/css/main.30e69060.css",
-    "static/js/main.8327c646.js"
+    "static/js/main.a27228f4.js"
   ]
 }
