@@ -22,7 +22,7 @@ const Law = () => {
           columns="repeat(2, 1fr)"
           rows="none"
           gap="20px"
-          padding="0"
+          padding="0 20px 0 0"
           height="100%"
           areas={`"public criminal""civil commercial""administrative procedural"`}
         >
