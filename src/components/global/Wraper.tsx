@@ -12,7 +12,7 @@ const Container = styled.div`
   overflow: hidden;
   padding: calc(var(--header-height) + var(--wraper-padding))
     var(--wraper-padding) 
-    calc(var(--wraper-padding) + 100px)
+    calc(var(--wraper-padding))
     calc(var(--nav-width) + var(--wraper-padding));
   background-color: var(--gray-1);
 

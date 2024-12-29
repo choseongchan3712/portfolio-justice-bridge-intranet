@@ -86,91 +86,91 @@ const RatesWrap = ({ type, areaName }: RatesWrapType) => {
   const [useStock, setUseStock] = useState<any>();
   const [shuffledStock, setShuffledStock] = useState<any>();
 
-  // useEffect(() => {
-  //   (async () => {
-  //     try {
-  //       const res = await getExchangeRates();
-  //       setUSD(res?.data?.rates?.KRW);
-  //       setModifyEx(
-  //         exchangeData.map((value: any) => ({
-  //           symbol: value.symbol,
-  //           amount: res?.data?.rates[value.symbol],
-  //           name: value.name,
-  //         }))
-  //       );
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   })();
-  // }, []);
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await getExchangeRates();
+        setUSD(res?.data?.rates?.KRW);
+        setModifyEx(
+          exchangeData.map((value: any) => ({
+            symbol: value.symbol,
+            amount: res?.data?.rates[value.symbol],
+            name: value.name,
+          }))
+        );
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
 
-  // useEffect(() => {
-  //   if (modifyEx && USD) {
-  //     setExData([
-  //       {
-  //         symbol: "USD",
-  //         amount: USD.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ","),
-  //         name: "미국",
-  //       },
-  //       ...modifyEx.map((value: any) => ({
-  //         symbol: value.symbol,
-  //         amount: (USD / parseFloat(value.amount))
-  //           .toFixed(2)
-  //           .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
-  //         name: value.name,
-  //       })),
-  //     ]);
-  //   }
-  // }, [modifyEx, USD]);
+  useEffect(() => {
+    if (modifyEx && USD) {
+      setExData([
+        {
+          symbol: "USD",
+          amount: USD.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+          name: "미국",
+        },
+        ...modifyEx.map((value: any) => ({
+          symbol: value.symbol,
+          amount: (USD / parseFloat(value.amount))
+            .toFixed(2)
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+          name: value.name,
+        })),
+      ]);
+    }
+  }, [modifyEx, USD]);
 
-  // useEffect(() => {
-  //   if (exData) {
-  //     const needData = exData;
-  //     setShuffledData(
-  //       needData
-  //         .map((value: any) => ({ value, random: Math.random() }))
-  //         .sort((a: any, b: any) => a.random - b.random)
-  //         .map(({ value }: any) => value)
-  //     );
-  //   }
-  // }, [exData]);
+  useEffect(() => {
+    if (exData) {
+      const needData = exData;
+      setShuffledData(
+        needData
+          .map((value: any) => ({ value, random: Math.random() }))
+          .sort((a: any, b: any) => a.random - b.random)
+          .map(({ value }: any) => value)
+      );
+    }
+  }, [exData]);
 
-  // useEffect(() => {
-  //   (async () => {
-  //     try {
-  //       const res = await stockRates();
-  //       setStockData(res?.data?.response?.body?.items?.item);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   })();
-  // }, []);
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await stockRates();
+        setStockData(res?.data?.response?.body?.items?.item);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
 
-  // useEffect(() => {
-  //   if (stockData) {
-  //     setUseStock(
-  //       stockData.map((value: any) => ({
-  //         name: value.itmsNm,
-  //         amount: parseFloat(value.mkp)
-  //           .toFixed(2)
-  //           .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
-  //         percent: parseFloat(value.fltRt),
-  //       }))
-  //     );
-  //   }
-  // }, [stockData]);
+  useEffect(() => {
+    if (stockData) {
+      setUseStock(
+        stockData.map((value: any) => ({
+          name: value.itmsNm,
+          amount: parseFloat(value.mkp)
+            .toFixed(2)
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+          percent: parseFloat(value.fltRt),
+        }))
+      );
+    }
+  }, [stockData]);
 
-  // useEffect(() => {
-  //   if (useStock) {
-  //     const needStock = useStock;
-  //     setShuffledStock(
-  //       needStock
-  //         .map((value: any) => ({ value, random: Math.random() }))
-  //         .sort((a: any, b: any) => a.random - b.random)
-  //         .map(({ value }: any) => value)
-  //     );
-  //   }
-  // }, [useStock]);
+  useEffect(() => {
+    if (useStock) {
+      const needStock = useStock;
+      setShuffledStock(
+        needStock
+          .map((value: any) => ({ value, random: Math.random() }))
+          .sort((a: any, b: any) => a.random - b.random)
+          .map(({ value }: any) => value)
+      );
+    }
+  }, [useStock]);
 
   return type === "exchange" ? (
     shuffledData ? (

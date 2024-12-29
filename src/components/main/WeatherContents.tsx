@@ -102,67 +102,67 @@ const WeatherContents = () => {
     setDate(now.format("MM.DD"));
   }, []);
 
-  // useEffect(() => {
-  //   updateTime();
-  //   const interval = setInterval(() => {
-  //     updateTime();
-  //   }, 60000);
+  useEffect(() => {
+    updateTime();
+    const interval = setInterval(() => {
+      updateTime();
+    }, 60000);
 
-  //   return () => clearInterval(interval);
-  // }, [updateTime]); //! updateTime이 변경될 때만 useEffect가 실행
+    return () => clearInterval(interval);
+  }, [updateTime]); //! updateTime이 변경될 때만 useEffect가 실행
 
-  // useEffect(() => {
-  //   if (navigator.geolocation) {
-  //     navigator.geolocation.getCurrentPosition(
-  //       (position) => {
-  //         const latitude = position.coords.latitude; //위도
-  //         const longtitude = position.coords.longitude; //경도
-  //         setLocation({ lat: latitude, long: longtitude });
-  //       },
-  //       (error) => {
-  //         console.log(error);
-  //       }
-  //     );
-  //   }
-  //   const now = getTime();
-  //   setNowTime(now);
-  // }, []);
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const latitude = position.coords.latitude; //위도
+          const longtitude = position.coords.longitude; //경도
+          setLocation({ lat: latitude, long: longtitude });
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
+    const now = getTime();
+    setNowTime(now);
+  }, []);
 
-  // useEffect(() => {
-  //   if (location) {
-  //     const grid = getLocation(location.lat, location.long);
-  //     setLocationToGrid(grid);
-  //     (async () => {
-  //       try {
-  //         const locName = await getLocationName({
-  //           x: location.long,
-  //           y: location.lat,
-  //         });
-  //         setLocationName(locName?.data?.documents[0]?.region_1depth_name);
-  //       } catch (error) {
-  //         console.log(error);
-  //       }
-  //     })();
-  //   }
-  // }, [location]);
+  useEffect(() => {
+    if (location) {
+      const grid = getLocation(location.lat, location.long);
+      setLocationToGrid(grid);
+      (async () => {
+        try {
+          const locName = await getLocationName({
+            x: location.long,
+            y: location.lat,
+          });
+          setLocationName(locName?.data?.documents[0]?.region_1depth_name);
+        } catch (error) {
+          console.log(error);
+        }
+      })();
+    }
+  }, [location]);
 
-  // useEffect(() => {
-  //   if (locationToGrid && nowTime) {
-  //     (async () => {
-  //       try {
-  //         const res = await getweather({
-  //           nx: locationToGrid.x,
-  //           ny: locationToGrid.y,
-  //           base_date: nowTime.day,
-  //           base_time: nowTime.time,
-  //         });
-  //         setWeather(res);
-  //       } catch (error) {
-  //         console.log(error);
-  //       }
-  //     })();
-  //   }
-  // }, [locationToGrid, nowTime]);
+  useEffect(() => {
+    if (locationToGrid && nowTime) {
+      (async () => {
+        try {
+          const res = await getweather({
+            nx: locationToGrid.x,
+            ny: locationToGrid.y,
+            base_date: nowTime.day,
+            base_time: nowTime.time,
+          });
+          setWeather(res);
+        } catch (error) {
+          console.log(error);
+        }
+      })();
+    }
+  }, [locationToGrid, nowTime]);
 
   const updateDoWeather = useCallback(() => {
     if (weather) {
