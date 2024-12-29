@@ -11,9 +11,17 @@ const Container = styled.div`
   z-index: 0;
   overflow: hidden;
   padding: calc(var(--header-height) + var(--wraper-padding))
-    var(--wraper-padding) var(--wraper-padding)
+    var(--wraper-padding) 
+    calc(var(--wraper-padding) + 100px)
     calc(var(--nav-width) + var(--wraper-padding));
   background-color: var(--gray-1);
+
+  @media screen and (max-width: 1200px) {
+    padding: calc(var(--header-height) + var(--wraper-padding))
+      var(--wraper-padding) 
+      calc(var(--wraper-padding) + 100px)
+      calc(var(--nav-width) + 20px);
+  }
 `;
 
 interface WraperType {
