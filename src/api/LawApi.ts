@@ -1,7 +1,11 @@
 import axios from "axios";
 
+const PROXY_URL = process.env.NODE_ENV === 'production' 
+  ? "https://intranet-server-rjg3.onrender.com/api"  
+  : "http://localhost:4000/api";
+
 const lawApi = axios.create({
-  baseURL: "http://www.law.go.kr/DRF/lawService.do?target=law",
+  baseURL: `${PROXY_URL}/law`,
   params: {
     OC: "choseongchan3712",
     type: "JSON",
@@ -9,14 +13,10 @@ const lawApi = axios.create({
 });
 
 export const getLawId = (id: string) =>
-  lawApi.get("", {
-    params: {
-      ID: id,
-    },
-  });
+  lawApi.get(`/${id}`);
 
 const searchLawApi = axios.create({
-  baseURL: "http://www.law.go.kr/DRF/lawSearch.do?target=law",
+  baseURL: `${PROXY_URL}/law-search`,
   params: {
     OC: "choseongchan3712",
     type: "JSON",
@@ -32,7 +32,7 @@ export const getLaw = (query: string) =>
   });
 
 const precedentApi = axios.create({
-  baseURL: "http://www.law.go.kr/DRF/lawSearch.do?target=prec",
+  baseURL: `${PROXY_URL}/precedent-search`,
   params: {
     OC: "choseongchan3712",
     type: "JSON",
@@ -56,7 +56,7 @@ export const getSearchprec = (query: string) =>
   });
 
 const searchPrecApi = axios.create({
-  baseURL: "http://www.law.go.kr/DRF/lawService.do?target=prec",
+  baseURL: `${PROXY_URL}/precedent`,
   params: {
     OC: "choseongchan3712",
     type: "JSON",
@@ -64,35 +64,33 @@ const searchPrecApi = axios.create({
 });
 
 export const getPrec = (id: string) =>
-  searchPrecApi.get("", {
-    params: {
-      ID: `${id}`,
-    },
-  });
+  searchPrecApi.get(`/${id}`);
 
 const interpretationApi = axios.create({
-  baseURL: "http://www.law.go.kr/DRF/lawSearch.do?target=expc",
+  baseURL: `${PROXY_URL}/interpretation-search`,
   params: {
     OC: "choseongchan3712",
     type: "JSON",
     display: "100",
   },
 });
+
 export const getInter = (page: string) =>
   interpretationApi.get("", {
     params: {
       page: page,
     },
   });
-  export const getInterprec = (query: string) =>
-    interpretationApi.get("", {
-      params: {
-        query: query,
-      },
-    });
+
+export const getInterprec = (query: string) =>
+  interpretationApi.get("", {
+    params: {
+      query: query,
+    },
+  });
 
 const searchInterApi = axios.create({
-  baseURL: "http://www.law.go.kr/DRF/lawService.do?target=expc",
+  baseURL: `${PROXY_URL}/interpretation`,
   params: {
     OC: "choseongchan3712",
     type: "JSON",
