@@ -81,14 +81,16 @@ interface IdProps {
 }
 
 const LawWrap = ({ id }: IdProps): JSX.Element => {
-  console.log('LawWrap rendered with id:', id);
+  console.log("LawWrap rendered with id:", id);
   const [law, setlaw] = useState<any>(null);
+  const [lawName, setLawName] = useState<any>(null);
+  const [needArticle, setNeedArticle] = useState<any>(null);
 
   useEffect(() => {
     (async () => {
       try {
         const response = await getLawId(id);
-        console.log('API response:', response);
+        console.log("API response:", response);
         setlaw(response.data);
       } catch (error) {
         console.log(error);
@@ -96,11 +98,13 @@ const LawWrap = ({ id }: IdProps): JSX.Element => {
     })();
   }, [id]);
 
-  console.log(law);
+  useEffect(() => {
+    setLawName(law?.기본정보?.법령명_한글);
+    setNeedArticle(law?.조문?.조문단위);
+  }, [law]);
 
-  const lawName: string = law?.기본정보?.법령명_한글;
-
-  const needArticle = law?.조문?.조문단위;
+  console.log(lawName);
+  console.log(needArticle);
 
   const newLawArr = needArticle?.map(({ 조문내용, 항 }: any) => ({
     장: /제\d+장/.test(조문내용) ? `${조문내용}` : null,
