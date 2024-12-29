@@ -6,6 +6,7 @@ import { GoPasswordContxt } from "../components/login/components/context/GoPassw
 import { GoLoginContext } from "../components/login/components/context/GoLoginContext";
 import Password from "../components/login/pages/Password";
 import SignUp from "../components/login/pages/SignUp";
+import Title from "../components/global/Title";
 
 const Wrap = styled.div`
   width: 100vw;
@@ -31,17 +32,20 @@ const Login = () => {
   const { goLogin } = useContext(GoLoginContext)!;
 
   return (
-    <Wrap>
-      <Container>
-        {goLogin ? (
-          <LoginMain />
-        ) : goPassword ? (
-          <Password />
-        ) : goSignUp ? (
-          <SignUp />
-        ) : null}
-      </Container>
-    </Wrap>
+    <>
+    <Title title="로그인"/>
+      <Wrap>
+        <Container>
+          {goLogin ? (
+            <LoginMain />
+          ) : goPassword ? (
+            <Password />
+          ) : goSignUp ? (
+            <SignUp />
+          ) : null}
+        </Container>
+      </Wrap>
+    </>
   );
 };
 

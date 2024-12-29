@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { ThemeContext } from "../global/context/ThemeContext";
 
 const Container = styled.div`
+  position: relative;
   width: 20%;
   height: 200px;
   display: flex;
@@ -13,6 +14,29 @@ const Container = styled.div`
   font-size: var(--title-size);
   font-weight: 900;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  .border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    .top {
+      width: 80%;
+      height: 20%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .left {
+      width: 20%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+    }
+  }
 `;
 
 interface colorType {
@@ -50,6 +74,10 @@ const ThemeWrap = ({ color, text, bgColor }: colorType) => {
       onClick={clickHandler}
       ref={conRef}
     >
+      <div className="border">
+        <div className="top"></div>
+        <div className="left"></div>
+      </div>
       {text}
     </Container>
   );

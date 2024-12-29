@@ -122,10 +122,10 @@ const Container = styled.div`
 const HeaderWrap = () => {
   const [title, setTitle] = useState<string>();
   const location = useLocation();
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     if (location?.pathname) {
-      if (location?.pathname ==="/main") {
+      if (location?.pathname === "/main") {
         setTitle("메인");
       } else if (location?.pathname === "/document") {
         setTitle("문서관리");
@@ -133,15 +133,13 @@ const HeaderWrap = () => {
         setTitle("채팅");
       } else if (location?.pathname === "/notice") {
         setTitle("게시판");
-      } else if (location?.pathname === "/management") {
-        setTitle("업무관리");
       } else if (location?.pathname === "/law") {
         setTitle("법률정보");
       } else if (location?.pathname === "/setting") {
         setTitle("설정");
       }
     }
-  }, [location])
+  }, [location]);
 
   return (
     <Container>

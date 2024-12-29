@@ -3,13 +3,11 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCalculator,
-  faList,
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { useContext, useEffect, useState } from "react";
 import { IsOpenContext } from "./context/IsOpenContext";
-import PopUpContents from "./PopUpContents";
-import CalculateContents from "./subEffect/CalculateContents";
+
 import { IsCalOpenContext } from "./context/IsCalOpenContext";
 
 const Container = styled.div`
@@ -113,16 +111,6 @@ const SubEffectButton = () => {
           onClick={calHandler}
         >
           <FontAwesomeIcon icon={faCalculator} />
-        </motion.div>
-        <motion.div
-          className="todo"
-          whileHover={{ scale: 1.2 }}
-          whileTap={{ scale: 0.9 }}
-          animate={{ y: isClick ? -95 : 0, opacity: isClick ? 1 : 0 }}
-          transition={{ type: "spring", stiffness: 200, damping: 10 }}
-          onClick={todoHandler}
-        >
-          <FontAwesomeIcon icon={faList} />
         </motion.div>
       </Container>
   );

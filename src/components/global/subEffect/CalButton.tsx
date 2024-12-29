@@ -7,8 +7,8 @@ cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--normal-size);
-  font-weight: 500;
+  font-size: var(--title-size);
+  font-weight: 900;
   color: var(--sub-color-b);
   transition: all 0.3s ease;
   &:hover {

@@ -26,5 +26,6 @@
 - [X] npm install react-tsparticles tsparticles
 - [X] npm install @mui/material @mui/styled-engine-sc styled-components
 - [X] npm install @mui/x-date-pickers
+- [X] npm i react-helmet-async
 
 

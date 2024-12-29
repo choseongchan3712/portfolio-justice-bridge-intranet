@@ -9,7 +9,6 @@ import Header from "./components/global/Header";
 import Chat from "./pages/Chat";
 import Document from "./pages/Document";
 import Law from "./pages/Law";
-import Management from "./pages/Management";
 import Setting from "./pages/Setting";
 import Notice from "./pages/Notice";
 import SubEffectButton from "./components/global/SubEffectButton";
@@ -152,16 +151,6 @@ const Router = () => {
                             <Route path="group" element={<GroupWrap />} />
                             <Route path="team" element={<TeamWrap />} />
                           </Route>
-                          <Route
-                            path="/management"
-                            element={
-                              isLogin ? (
-                                <Management />
-                              ) : (
-                                <Navigate to={"/login"} />
-                              )
-                            }
-                          />
                           <Route
                             path="/setting"
                             element={

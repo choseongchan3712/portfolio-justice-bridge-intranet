@@ -79,9 +79,6 @@ const Header = () => {
             <NavButton title="게시판" link="/notice">
               <FontAwesomeIcon icon={faList} />
             </NavButton>
-            <NavButton title="업무관리" link="/management">
-              <FontAwesomeIcon icon={faBriefcase} />
-            </NavButton>
             <NavButton title="법률정보" link="/law">
               <FontAwesomeIcon icon={faGavel} />
             </NavButton>
